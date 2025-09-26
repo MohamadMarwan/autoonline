@@ -1,0 +1,10 @@
+# تجاهل الملفات الحساسة
+.streamlit/secrets.toml
+app_config.json
+
+# تجاهل مجلدات المصادقة بالكامل
+google_credentials/
+
+# تجاهل السجلات والملفات المؤقتة
+logs/
+*.log
