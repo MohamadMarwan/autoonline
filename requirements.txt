@@ -1,3 +1,2 @@
 streamlit
-BeautifulSoup4
-NavigableString
+BeautifulSoup4, NavigableString
