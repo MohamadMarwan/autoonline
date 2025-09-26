@@ -7,8 +7,8 @@ import os
 import tempfile
 import asyncio
 from datetime import datetime
-import sys # <-- استيراد مكتبة sys للوصول إلى مسار بايثون
-import toml # <-- استيراد toml للقراءة المحلية
+import sys
+import toml
 
 # استيراد السكربتات المساعدة
 from bot_scripts.extractor import links_extractor
@@ -20,6 +20,10 @@ IS_CLOUD_ENVIRONMENT = hasattr(st, 'secrets')
 
 # --- دوال مساعدة لإدارة الإعدادات والسجلات ---
 def load_config():
+    """
+    تحميل الإعدادات من Streamlit Secrets (في السحابة) 
+    أو من ملف .streamlit/secrets.toml (محليًا).
+    """
     if IS_CLOUD_ENVIRONMENT:
         try:
             return st.secrets["app_config"].to_dict()
@@ -30,10 +34,13 @@ def load_config():
         secrets_path = os.path.join(".streamlit", "secrets.toml")
         try:
             if not os.path.exists(secrets_path):
-                if os.path.exists('app_config.json'): # كحل بديل مؤقت
-                    with open('app_config.json', 'r', encoding='utf-8') as f: return json.load(f)
+                # كحل بديل، ابحث عن app_config.json إذا لم يوجد secrets.toml
+                if os.path.exists('app_config.json'):
+                    with open('app_config.json', 'r', encoding='utf-8') as f:
+                        return json.load(f)
                 st.error(f"ملف الإعدادات '{secrets_path}' غير موجود.")
                 return None
+            
             parsed_toml = toml.load(secrets_path)
             return parsed_toml.get("app_config", {})
         except Exception as e:
@@ -41,23 +48,32 @@ def load_config():
             return None
 
 def save_config(config_data):
+    """
+    حفظ الإعدادات في secrets.toml عند التشغيل المحلي.
+    """
     if IS_CLOUD_ENVIRONMENT:
         st.warning("لا يمكن حفظ التغييرات تلقائيًا في بيئة النشر السحابية."); return False
+    
     secrets_path = os.path.join(".streamlit", "secrets.toml")
     try:
         full_config = toml.load(secrets_path)
-        if 'app_config' not in full_config: full_config['app_config'] = {}
+        if 'app_config' not in full_config:
+            full_config['app_config'] = {}
         full_config['app_config'].update(config_data)
+        
         with open(secrets_path, 'w', encoding='utf-8') as f:
             toml.dump(full_config, f)
         st.success("تم حفظ التغييرات بنجاح في secrets.toml!"); return True
     except Exception as e:
         st.error(f"فشل حفظ الإعدادات في secrets.toml: {e}"); return False
 
-# ✅ --- هذا هو الإصدار الكامل والصحيح لهذه الدالة ---
 def run_script_and_show_output(command_script_part, username, task_name, user_data):
+    """
+    يقوم بإنشاء ملفات المصادقة من Secrets قبل تشغيل السكربت.
+    """
     credential_path = user_data.get('credential_path')
     
+    # --- ✅ هذا هو الجزء الحاسم الذي يحل المشكلة ---
     if IS_CLOUD_ENVIRONMENT and credential_path:
         st.info("... تهيئة بيئة المصادقة الآمنة ...")
         try:
@@ -126,10 +142,14 @@ def admin_dashboard():
             new_earnings = st.number_input("تحديد/تعديل الأرباح:", value=float(data.get('earnings', 0.0)), step=0.01, format="%.2f", key=f"earn_{username}")
             new_rating = st.text_input("تحديد/تعديل التقييم:", value=data.get('rating', ''), key=f"rate_{username}")
             if st.button("💾 حفظ التغييرات لهذا المستخدم", key=f"save_{username}"):
-                users_data[username]['earnings'] = new_earnings
-                users_data[username]['rating'] = new_rating
-                if save_config({'users': users_data}):
-                    st.success(f"تم تحديث بيانات {username} بنجاح!"); time.sleep(1); st.rerun()
+                if not IS_CLOUD_ENVIRONMENT:
+                    config['users'][username]['earnings'] = new_earnings
+                    config['users'][username]['rating'] = new_rating
+                    if save_config(config):
+                        st.success(f"تم تحديث بيانات {username} بنجاح!")
+                        time.sleep(1); st.rerun()
+                else:
+                    save_config(config)
 
     st.markdown("---")
     st.subheader("🛠️ إدارة الحسابات")
@@ -166,8 +186,8 @@ def user_dashboard():
     
     page_error = None
     if page in ["📝 نشر مقالات", "✨ تنظيف المقالات"] and not credential_path: page_error = "خطأ: لم يتم تعيين مسار المصادقة لهذا المستخدم."
-    elif page == "🔗 استخراج الروابط" and (not blogger_settings or not blogger_settings.get('blog_id') or not blogger_settings.get('api_key')): page_error = "خطأ: إعدادات بلوجر (BLOG_ID و API_KEY) غير معينة لحسابك."
-    elif page == "🖼️ صانع الصور الإخبارية" and (not telegram_settings or not telegram_settings.get('bot_token') or not telegram_settings.get('channel_id')): page_error = "خطأ: إعدادات تليجرام (bot_token و channel_id) غير معينة لحسابك."
+    elif page == "🔗 استخراج الروابط" and (not blogger_settings or not blogger_settings.get('blog_id') or not blogger_settings.get('api_key')): page_error = "خطأ: إعدادات بلوجر غير معينة لحسابك."
+    elif page == "🖼️ صانع الصور الإخبارية" and (not telegram_settings or not telegram_settings.get('bot_token') or not telegram_settings.get('channel_id')): page_error = "خطأ: إعدادات تليجرام غير معينة لحسابك."
     
     if page_error: st.error(f"{page_error} يرجى مراجعة المشرف."); return
 
