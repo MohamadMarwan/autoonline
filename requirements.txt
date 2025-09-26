@@ -1,14 +1,2 @@
 streamlit
-requests
 beautifulsoup4
-google-api-python-client
-google-auth-oauthlib
-python-telegram-bot
-Pillow
-arabic_reshaper
-python-bidi
-toml
-tqdm
-cloudscraper
-numpy
-nltk
