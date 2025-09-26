@@ -1,0 +1,37 @@
+--- بدء السجل في 2025-09-24 04:46:21 ---
+2025-09-24 04:46:28,282 - BotRunner - [INFO] - Config loaded from C:\Users\Khale\OneDrive\Desktop\projects\auto_online\bot_scripts\scraper\config.ini (main.py:40)
+2025-09-24 04:46:28,282 - BotRunner - [INFO] - ===== BOT CYCLE STARTED ===== (main.py:63)
+2025-09-24 04:46:28,282 - BotRunner - [WARNING] - File 'published_source_urls.txt' not found. A new one will be created. (main.py:47)
+2025-09-24 04:46:28,283 - BotRunner - [INFO] - Loaded 0 previously published URLs. (main.py:65)
+2025-09-24 04:46:28,344 - core.article_scraper - [INFO] - ArticleScraper initialized with CloudScraper UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 (article_scraper.py:22)
+2025-09-24 04:46:28,344 - core.content_formatter - [INFO] - Attempting to load replacement dictionary from: C:\Users\Khale\OneDrive\Desktop\projects\auto_online\bot_scripts\scraper\replacements.json (content_formatter.py:31)
+2025-09-24 04:46:28,344 - core.content_formatter - [WARNING] - Repl. dict file 'C:\Users\Khale\OneDrive\Desktop\projects\auto_online\bot_scripts\scraper\replacements.json' not found. (content_formatter.py:33)
+2025-09-24 04:46:28,346 - core.permalink_generator - [INFO] - DeepL Translator (Google engine) initialized for permalink/title suggestion. (permalink_generator.py:18)
+2025-09-24 04:46:28,347 - core.blogger_client - [INFO] - Using BlogID: 3714169846779613939 for Blogger operations. (blogger_client.py:39)
+2025-09-24 04:46:28,349 - core.blogger_client - [INFO] - Credentials expired. Refreshing token... (blogger_client.py:58)
+2025-09-24 04:46:29,325 - core.blogger_client - [INFO] - Token refreshed successfully. (blogger_client.py:60)
+2025-09-24 04:46:29,328 - core.blogger_client - [INFO] - Credentials saved to google_credentials/account_1\token.json (blogger_client.py:83)
+2025-09-24 04:46:29,344 - core.blogger_client - [INFO] - Blogger service client initialized successfully. (blogger_client.py:93)
+2025-09-24 04:46:29,344 - BotRunner - [INFO] - Processing 2 specific URLs provided. (main.py:90)
+2025-09-24 04:46:29,347 - BotRunner - [INFO] - --- Processing Article (1/2): https://world.albalad-news.com/2025/09/emirati-moment-of-milestone-first-air.html --- (main.py:114)
+2025-09-24 04:46:29,348 - core.article_scraper - [INFO] - Scraping https://world.albalad-news.com/2025/09/emirati-moment-of-milestone-first-air.html (via cloudscraper) (article_scraper.py:138)
+2025-09-24 04:46:30,490 - core.article_scraper - [INFO] - SUCCESS: Found title for 'https://world.albalad-news.com/2025/09/emirati-moment-of-milestone-first-air.html' using selector #2: 'h1'. (article_scraper.py:31)
+2025-09-24 04:46:30,520 - core.article_scraper - [WARNING] - FAILURE: Could not find content container for 'https://world.albalad-news.com/2025/09/emirati-moment-of-milestone-first-air.html' using: ['body > div.all > div > div.container > div.featured > div.news_preview', 'div.description_holder', 'body > main > div > div.row > div.col-lg-8 > article > div.article-content', '#penci-post-entry-inner', 'div > div.s-ct > div.s-ct-wrap > div.s-ct-inner'] (article_scraper.py:34)
+2025-09-24 04:46:30,524 - core.article_scraper - [INFO] - Found OG image: https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_svExKdjAEcz6H997-BZY54Fz_j_L8hgyPczbM9Cbm2B2IAPqNccCJYf6Wq_5olrwQLtK8cVSZkWQfii-VP0oVLSp0XjdME0mXBMSylSz9L73RGtf8iPcMznw9N8ovfBJ6xJ1PsorNNEpa0DVJQsA=w1200-h630-p-k-no-nu (article_scraper.py:186)
+CRITICAL UNHANDLED ERROR: ContentFormatter.format_for_blogger() missing 1 required positional argument: 'processed_images_map'
+2025-09-24 04:46:30,524 - BotRunner - [CRITICAL] - An unhandled critical error occurred: ContentFormatter.format_for_blogger() missing 1 required positional argument: 'processed_images_map' (main.py:191)
+Traceback (most recent call last):
+  File "C:\Users\Khale\OneDrive\Desktop\projects\auto_online\bot_scripts\scraper\main.py", line 179, in <module>
+    run_bot_cycle(
+    ~~~~~~~~~~~~~^
+        creds_path=args.creds_path,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        article_urls_to_process=args.urls,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        custom_labels=args.labels # سيحتوي على قائمة التصنيفات أو None
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Khale\OneDrive\Desktop\projects\auto_online\bot_scripts\scraper\main.py", line 122, in run_bot_cycle
+    final_html = content_formatter.format_for_blogger(...)
+TypeError: ContentFormatter.format_for_blogger() missing 1 required positional argument: 'processed_images_map'

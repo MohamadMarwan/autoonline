@@ -1,0 +1,5 @@
+--- بدء السجل في 2025-09-24 03:51:35 ---
+--- بدء عملية تنظيف المقالات ---
+🔄 جاري جلب آخر 1 مقال من المدونة: ALI_BLOG_ID_123...
+❌ فشل في جلب المقالات: <HttpError 400 when requesting https://blogger.googleapis.com/v3/blogs/ALI_BLOG_ID_123/posts?maxResults=1&fetchBodies=true&alt=json returned "Invalid blog id: For input string: "ALI_BLOG_ID_123"". Details: "[{'message': 'Invalid blog id: For input string: "ALI_BLOG_ID_123"', 'domain': 'global', 'reason': 'required'}]">
+--- انتهت عملية التنظيف ---

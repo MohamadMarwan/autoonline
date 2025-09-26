@@ -1,0 +1,99 @@
+--- بدء السجل في 2025-09-25 17:05:23 ---
+2025-09-25 17:05:29,958 - BotRunner - [INFO] - Config loaded from C:\Users\Khale\OneDrive\Desktop\projects\auto_online\bot_scripts\scraper\config.ini (main.py:41)
+2025-09-25 17:05:29,958 - BotRunner - [INFO] - ===== BOT CYCLE STARTED ===== (main.py:64)
+2025-09-25 17:05:29,958 - BotRunner - [WARNING] - File 'published_source_urls.txt' not found. A new one will be created. (main.py:48)
+2025-09-25 17:05:29,959 - BotRunner - [INFO] - Loaded 0 previously published URLs. (main.py:66)
+2025-09-25 17:05:29,961 - BotRunner - [INFO] - Successfully loaded publishing rules from C:\Users\Khale\AppData\Local\Temp\tmpdn4qxnqd.json (main.py:74)
+2025-09-25 17:05:30,038 - core.article_scraper - [INFO] - ArticleScraper initialized with CloudScraper UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 (article_scraper.py:22)
+2025-09-25 17:05:30,040 - core.permalink_generator - [INFO] - DeepL Translator (Google engine) initialized for permalink/title suggestion. (permalink_generator.py:18)
+2025-09-25 17:05:30,042 - core.blogger_client - [INFO] - Using BlogID: 3714169846779613939 for Blogger operations. (blogger_client.py:39)
+2025-09-25 17:05:30,049 - core.blogger_client - [INFO] - Blogger service client initialized successfully. (blogger_client.py:93)
+2025-09-25 17:05:30,052 - BotRunner - [INFO] - Processing 2 specific URLs provided. (main.py:99)
+2025-09-25 17:05:30,054 - BotRunner - [INFO] - --- Processing Article (1/2): https://sana.sy/education/2292327/ --- (main.py:120)
+2025-09-25 17:05:30,056 - core.article_scraper - [INFO] - Scraping https://sana.sy/education/2292327/ (via cloudscraper) (article_scraper.py:138)
+2025-09-25 17:05:31,423 - core.article_scraper - [INFO] - SUCCESS: Found title for 'https://sana.sy/education/2292327/' using selector #2: 'h1'. (article_scraper.py:31)
+2025-09-25 17:05:31,476 - core.article_scraper - [INFO] - SUCCESS: Found content container for 'https://sana.sy/education/2292327/' using selector #5: 'div > div.s-ct > div.s-ct-wrap > div.s-ct-inner'. (article_scraper.py:31)
+2025-09-25 17:05:31,502 - core.article_scraper - [INFO] - Found OG image: https://cdn.sananews.sy/2025/09/888-4-2-1024x683.jpg (article_scraper.py:186)
+2025-09-25 17:05:32,322 - core.permalink_generator - [INFO] - Original: 'وزير التربية السوري يبحث مع نق...' -> Suggested Title: 'The Syrian Minister of Education discusses with th...', Slug base: 'the-syrian-minister-of-education-discusses-with-the-palestinian-teachers-sy' (permalink_generator.py:47)
+Defined crop area (0,0,0,0) is invalid for image 891x649. Skipping fixed crop.
+2025-09-25 17:05:35,589 - BotRunner - [INFO] - Main image hosted: http://i.ibb.co/b5tZ9dpt/main-the-syrian-minister-of-educati-1758809133.jpg (main.py:139)
+Defined crop area (0,0,0,0) is invalid for image 2228x1622. Skipping fixed crop.
+Defined crop area (0,0,0,0) is invalid for image 261x190. Skipping fixed crop.
+2025-09-25 17:05:39,736 - core.content_formatter - [INFO] - Applying 1 dynamic replacement rules. (content_formatter.py:76)
+2025-09-25 17:05:39,742 - core.content_formatter - [INFO] - HTML content formatted for Blogger. (content_formatter.py:156)
+2025-09-25 17:05:39,742 - BotRunner - [INFO] - No custom labels provided, extracting automatically... (main.py:175)
+2025-09-25 17:05:39,747 - core.keyword_extractor - [INFO] - Extracting keywords (lang: ar, target: 0). Snippet: 'دمشق-سانا بحث وزير التربية والتعليم محمد عبد الرحمن تركو اليوم مع نقيب معلمي فلسطين سائد إرزيقات وال...' (keyword_extractor.py:42)
+2025-09-25 17:05:39,776 - core.keyword_extractor - [ERROR] - NLTK LookupError for word_tokenize ('ar'): 
+**********************************************************************
+  Resource [93mpunkt_tab[0m not found.
+  Please use the NLTK Downloader to obtain the resource:
+
+  [31m>>> import nltk
+  >>> nltk.download('punkt_tab')
+  [0m
+  For more information see: https://www.nltk.org/data.html
+
+  Attempted to load [93mtokenizers/punkt_tab/arabic/[0m
+
+  Searched in:
+    - 'C:\\Users\\Khale/nltk_data'
+    - 'C:\\Users\\Khale\\AppData\\Local\\Programs\\Python\\Python313\\nltk_data'
+    - 'C:\\Users\\Khale\\AppData\\Local\\Programs\\Python\\Python313\\share\\nltk_data'
+    - 'C:\\Users\\Khale\\AppData\\Local\\Programs\\Python\\Python313\\lib\\nltk_data'
+    - 'C:\\Users\\Khale\\AppData\\Roaming\\nltk_data'
+    - 'C:\\nltk_data'
+    - 'D:\\nltk_data'
+    - 'E:\\nltk_data'
+**********************************************************************
+. Fallback tokenization. (keyword_extractor.py:51)
+2025-09-25 17:05:39,781 - core.keyword_extractor - [INFO] - Keywords extracted (ar): [] (keyword_extractor.py:60)
+2025-09-25 17:05:39,782 - BotRunner - [INFO] - Publishing to Blogger. Title: 'وزير التربية السوري يبحث مع نقيب معلمي فلسطين تعزيز التعاون المشترك (The Syrian Minister of Education discusses with the Palestinian Teachers Syndicate to enhance joint cooperation)', Labels: ['دليلك في الأخبار', 'دليلك في سوريا'] (main.py:183)
+2025-09-25 17:05:39,782 - core.blogger_client - [INFO] - Creating post: 'وزير التربية السوري يبحث مع نقيب معلمي فلسطين تعزيز التعاون ...' (Draft: False) (blogger_client.py:116)
+2025-09-25 17:05:42,763 - core.blogger_client - [INFO] - Post created successfully: http://news.toiall.com/2025/09/syrian-minister-of-education-discusses_25.html (blogger_client.py:126)
+2025-09-25 17:05:42,764 - BotRunner - [INFO] - Successfully published 'https://sana.sy/education/2292327/' to Blogger: http://news.toiall.com/2025/09/syrian-minister-of-education-discusses_25.html (main.py:191)
+2025-09-25 17:05:42,765 - BotRunner - [INFO] - --- Processing Article (2/2): https://sana.sy/miscellaneous/2292338/ --- (main.py:120)
+2025-09-25 17:05:42,766 - core.article_scraper - [INFO] - Scraping https://sana.sy/miscellaneous/2292338/ (via cloudscraper) (article_scraper.py:138)
+2025-09-25 17:05:43,822 - core.article_scraper - [INFO] - SUCCESS: Found title for 'https://sana.sy/miscellaneous/2292338/' using selector #2: 'h1'. (article_scraper.py:31)
+2025-09-25 17:05:43,863 - core.article_scraper - [INFO] - SUCCESS: Found content container for 'https://sana.sy/miscellaneous/2292338/' using selector #5: 'div > div.s-ct > div.s-ct-wrap > div.s-ct-inner'. (article_scraper.py:31)
+2025-09-25 17:05:43,904 - core.article_scraper - [INFO] - Found OG image: https://cdn.sananews.sy/2025/09/DSC_8574-1024x683.jpg (article_scraper.py:186)
+2025-09-25 17:05:44,672 - core.permalink_generator - [INFO] - Original: 'لغة الإشارة.. جسر إنساني يروي ...' -> Suggested Title: 'Sign language .. A human bridge narrates stories o...', Slug base: 'sign-language-a-human-bridge-narrates-stories-of-deaf-success-in-facing-cha' (permalink_generator.py:47)
+Defined crop area (0,0,0,0) is invalid for image 891x649. Skipping fixed crop.
+2025-09-25 17:05:46,588 - BotRunner - [INFO] - Main image hosted: http://i.ibb.co/mC7MGVh3/main-sign-language-a-human-bridge-n-1758809145.jpg (main.py:139)
+Defined crop area (0,0,0,0) is invalid for image 2228x1622. Skipping fixed crop.
+Defined crop area (0,0,0,0) is invalid for image 2228x1622. Skipping fixed crop.
+Defined crop area (0,0,0,0) is invalid for image 2228x1622. Skipping fixed crop.
+Defined crop area (0,0,0,0) is invalid for image 2228x1622. Skipping fixed crop.
+2025-09-25 17:05:58,027 - core.content_formatter - [INFO] - Applying 1 dynamic replacement rules. (content_formatter.py:76)
+2025-09-25 17:05:58,039 - core.content_formatter - [INFO] - HTML content formatted for Blogger. (content_formatter.py:156)
+2025-09-25 17:05:58,040 - BotRunner - [INFO] - No custom labels provided, extracting automatically... (main.py:175)
+2025-09-25 17:05:58,047 - core.keyword_extractor - [INFO] - Extracting keywords (lang: ar, target: 0). Snippet: 'دمشق-سانا تمثل لغة الإشارة جسراً إنسانياً يربط الصم ببقية فئات المجتمع، فهي ليست مجرد حركات عابرة، ب...' (keyword_extractor.py:42)
+2025-09-25 17:05:58,073 - core.keyword_extractor - [ERROR] - NLTK LookupError for word_tokenize ('ar'): 
+**********************************************************************
+  Resource [93mpunkt_tab[0m not found.
+  Please use the NLTK Downloader to obtain the resource:
+
+  [31m>>> import nltk
+  >>> nltk.download('punkt_tab')
+  [0m
+  For more information see: https://www.nltk.org/data.html
+
+  Attempted to load [93mtokenizers/punkt_tab/arabic/[0m
+
+  Searched in:
+    - 'C:\\Users\\Khale/nltk_data'
+    - 'C:\\Users\\Khale\\AppData\\Local\\Programs\\Python\\Python313\\nltk_data'
+    - 'C:\\Users\\Khale\\AppData\\Local\\Programs\\Python\\Python313\\share\\nltk_data'
+    - 'C:\\Users\\Khale\\AppData\\Local\\Programs\\Python\\Python313\\lib\\nltk_data'
+    - 'C:\\Users\\Khale\\AppData\\Roaming\\nltk_data'
+    - 'C:\\nltk_data'
+    - 'D:\\nltk_data'
+    - 'E:\\nltk_data'
+**********************************************************************
+. Fallback tokenization. (keyword_extractor.py:51)
+2025-09-25 17:05:58,074 - core.keyword_extractor - [INFO] - Keywords extracted (ar): [] (keyword_extractor.py:60)
+2025-09-25 17:05:58,075 - BotRunner - [INFO] - Publishing to Blogger. Title: 'لغة الإشارة.. جسر إنساني يروي قصص نجاح الصم في مواجهة التحديات (Sign language .. A human bridge narrates stories of deaf success in facing challenges)', Labels: ['دليلك في الأخبار', 'دليلك في سوريا'] (main.py:183)
+2025-09-25 17:05:58,075 - core.blogger_client - [INFO] - Creating post: 'لغة الإشارة.. جسر إنساني يروي قصص نجاح الصم في مواجهة التحدي...' (Draft: False) (blogger_client.py:116)
+2025-09-25 17:05:59,217 - core.blogger_client - [INFO] - Post created successfully: http://news.toiall.com/2025/09/sign-language-human-bridge-narrates_25.html (blogger_client.py:126)
+2025-09-25 17:05:59,218 - BotRunner - [INFO] - Successfully published 'https://sana.sy/miscellaneous/2292338/' to Blogger: http://news.toiall.com/2025/09/sign-language-human-bridge-narrates_25.html (main.py:191)
+2025-09-25 17:05:59,219 - BotRunner - [INFO] - Published 2 new articles in this cycle. (main.py:200)
+2025-09-25 17:05:59,219 - BotRunner - [INFO] - ===== BOT CYCLE FINISHED ===== (main.py:201)

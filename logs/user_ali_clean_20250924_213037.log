@@ -1,0 +1,4 @@
+--- بدء السجل في 2025-09-24 21:30:37 ---
+usage: clean_posts.py [-h] --blog-id BLOG_ID --creds-path CREDS_PATH
+                      [--limit LIMIT]
+clean_posts.py: error: unrecognized arguments: --rules-file C:\Users\Khale\AppData\Local\Temp\tmpln4kd12w.json

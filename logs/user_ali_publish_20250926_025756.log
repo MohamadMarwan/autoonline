@@ -1,0 +1,180 @@
+--- بدء السجل في 2025-09-26 02:57:56 ---
+2025-09-26 02:58:18,476 - BotRunner - [INFO] - Config loaded from C:\Users\Khale\OneDrive\Desktop\projects\auto_online\bot_scripts\scraper\config.ini (main.py:41)
+2025-09-26 02:58:18,477 - BotRunner - [INFO] - ===== BOT CYCLE STARTED ===== (main.py:64)
+2025-09-26 02:58:18,478 - BotRunner - [WARNING] - File 'published_source_urls.txt' not found. A new one will be created. (main.py:48)
+2025-09-26 02:58:18,478 - BotRunner - [INFO] - Loaded 0 previously published URLs. (main.py:66)
+2025-09-26 02:58:18,495 - BotRunner - [INFO] - Successfully loaded publishing rules from C:\Users\Khale\AppData\Local\Temp\tmpmec1uvj5.json (main.py:74)
+2025-09-26 02:58:18,583 - core.article_scraper - [INFO] - ArticleScraper initialized with CloudScraper UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 (article_scraper.py:22)
+2025-09-26 02:58:18,586 - core.permalink_generator - [INFO] - DeepL Translator (Google engine) initialized for permalink/title suggestion. (permalink_generator.py:18)
+2025-09-26 02:58:18,589 - core.blogger_client - [INFO] - Using BlogID: 3714169846779613939 for Blogger operations. (blogger_client.py:39)
+2025-09-26 02:58:18,611 - core.blogger_client - [INFO] - Credentials expired. Refreshing token... (blogger_client.py:58)
+2025-09-26 02:58:19,292 - core.blogger_client - [INFO] - Token refreshed successfully. (blogger_client.py:60)
+2025-09-26 02:58:19,294 - core.blogger_client - [INFO] - Credentials saved to google_credentials/account_1\token.json (blogger_client.py:83)
+2025-09-26 02:58:19,328 - core.blogger_client - [INFO] - Blogger service client initialized successfully. (blogger_client.py:93)
+2025-09-26 02:58:19,328 - BotRunner - [INFO] - Processing 8 specific URLs provided. (main.py:99)
+2025-09-26 02:58:19,328 - BotRunner - [INFO] - --- Processing Article (1/8): https://sana.sy/education/2293740/ --- (main.py:120)
+2025-09-26 02:58:19,329 - core.article_scraper - [INFO] - Scraping https://sana.sy/education/2293740/ (via cloudscraper) (article_scraper.py:138)
+2025-09-26 02:58:19,888 - core.article_scraper - [INFO] - SUCCESS: Found title for 'https://sana.sy/education/2293740/' using selector #2: 'h1'. (article_scraper.py:31)
+2025-09-26 02:58:19,942 - core.article_scraper - [INFO] - SUCCESS: Found content container for 'https://sana.sy/education/2293740/' using selector #5: 'div > div.s-ct > div.s-ct-wrap > div.s-ct-inner'. (article_scraper.py:31)
+2025-09-26 02:58:19,973 - core.article_scraper - [INFO] - Found OG image: https://cdn.sananews.sy/2025/09/التعليم-4-1024x683.jpg (article_scraper.py:186)
+2025-09-26 02:58:20,636 - core.permalink_generator - [INFO] - Original: 'وزير التعليم العالي: إصدار مفا...' -> Suggested Title: 'Minister of Higher Education: Issuing a specializa...', Slug base: 'minister-of-higher-education-issuing-a-specialization-of-old-secondary-cert' (permalink_generator.py:47)
+Defined crop area (0,0,0,0) is invalid for image 891x649. Skipping fixed crop.
+2025-09-26 02:58:22,746 - BotRunner - [INFO] - Main image hosted: http://i.ibb.co/2Yc1CRfd/main-minister-of-higher-education-i-1758844701.jpg (main.py:139)
+2025-09-26 02:58:22,748 - core.content_formatter - [INFO] - Applying 4 dynamic replacement rules. (content_formatter.py:76)
+2025-09-26 02:58:22,753 - core.content_formatter - [INFO] - HTML content formatted for Blogger. (content_formatter.py:156)
+2025-09-26 02:58:22,753 - BotRunner - [INFO] - Using custom labels provided by user: ['دليلك في الأخبار', 'دليلك في سوريا'] (main.py:172)
+2025-09-26 02:58:22,754 - BotRunner - [INFO] - Publishing to Blogger. Title: 'وزير التعليم العالي: إصدار مفاضلة خاصة بالشهادات الثانوية القديمة خلال أيام (Minister of Higher Education: Issuing a specialization of old secondary certificates within days)', Labels: ['دليلك في الأخبار', 'دليلك في سوريا'] (main.py:183)
+2025-09-26 02:58:22,754 - core.blogger_client - [INFO] - Creating post: 'وزير التعليم العالي: إصدار مفاضلة خاصة بالشهادات الثانوية ال...' (Draft: False) (blogger_client.py:116)
+2025-09-26 02:58:25,348 - core.blogger_client - [INFO] - Post created successfully: http://news.toiall.com/2025/09/minister-of-higher-education-issuing.html (blogger_client.py:126)
+2025-09-26 02:58:25,348 - BotRunner - [INFO] - Successfully published 'https://sana.sy/education/2293740/' to Blogger: http://news.toiall.com/2025/09/minister-of-higher-education-issuing.html (main.py:191)
+2025-09-26 02:58:25,348 - BotRunner - [INFO] - --- Processing Article (2/8): https://sana.sy/education/2293769/ --- (main.py:120)
+2025-09-26 02:58:25,349 - core.article_scraper - [INFO] - Scraping https://sana.sy/education/2293769/ (via cloudscraper) (article_scraper.py:138)
+2025-09-26 02:58:25,954 - core.article_scraper - [INFO] - SUCCESS: Found title for 'https://sana.sy/education/2293769/' using selector #2: 'h1'. (article_scraper.py:31)
+2025-09-26 02:58:26,008 - core.article_scraper - [INFO] - SUCCESS: Found content container for 'https://sana.sy/education/2293769/' using selector #5: 'div > div.s-ct > div.s-ct-wrap > div.s-ct-inner'. (article_scraper.py:31)
+2025-09-26 02:58:26,037 - core.article_scraper - [INFO] - Found OG image: https://cdn.sananews.sy/2025/09/photo_2025-09-25_23-40-26-1024x683.jpg (article_scraper.py:186)
+2025-09-26 02:58:26,522 - core.permalink_generator - [INFO] - Original: 'سوريا تجهز 24 مليون كتاب مدرسي...' -> Suggested Title: 'Syria is preparing 24 million textbooks for its st...', Slug base: 'syria-is-preparing-24-million-textbooks-for-its-students' (permalink_generator.py:47)
+Defined crop area (0,0,0,0) is invalid for image 891x649. Skipping fixed crop.
+2025-09-26 02:58:28,457 - BotRunner - [INFO] - Main image hosted: http://i.ibb.co/21vvs2mR/main-syria-is-preparing-24-million-1758844707.jpg (main.py:139)
+Defined crop area (0,0,0,0) is invalid for image 2228x1622. Skipping fixed crop.
+Defined crop area (0,0,0,0) is invalid for image 891x649. Skipping fixed crop.
+Defined crop area (0,0,0,0) is invalid for image 891x649. Skipping fixed crop.
+Defined crop area (0,0,0,0) is invalid for image 891x649. Skipping fixed crop.
+2025-09-26 02:58:37,455 - core.content_formatter - [INFO] - Applying 4 dynamic replacement rules. (content_formatter.py:76)
+2025-09-26 02:58:37,462 - core.content_formatter - [INFO] - HTML content formatted for Blogger. (content_formatter.py:156)
+2025-09-26 02:58:37,462 - BotRunner - [INFO] - Using custom labels provided by user: ['دليلك في الأخبار', 'دليلك في سوريا'] (main.py:172)
+2025-09-26 02:58:37,462 - BotRunner - [INFO] - Publishing to Blogger. Title: 'سوريا تجهز 24 مليون كتاب مدرسي لطلابها (Syria is preparing 24 million textbooks for its students)', Labels: ['دليلك في الأخبار', 'دليلك في سوريا'] (main.py:183)
+2025-09-26 02:58:37,463 - core.blogger_client - [INFO] - Creating post: 'سوريا تجهز 24 مليون كتاب مدرسي لطلابها (Syria is preparing 2...' (Draft: False) (blogger_client.py:116)
+2025-09-26 02:58:38,055 - core.blogger_client - [INFO] - Post created successfully: http://news.toiall.com/2025/09/24-syria-is-preparing-24-million.html (blogger_client.py:126)
+2025-09-26 02:58:38,055 - BotRunner - [INFO] - Successfully published 'https://sana.sy/education/2293769/' to Blogger: http://news.toiall.com/2025/09/24-syria-is-preparing-24-million.html (main.py:191)
+2025-09-26 02:58:38,055 - BotRunner - [INFO] - --- Processing Article (3/8): https://sana.sy/locals/2293749/ --- (main.py:120)
+2025-09-26 02:58:38,056 - core.article_scraper - [INFO] - Scraping https://sana.sy/locals/2293749/ (via cloudscraper) (article_scraper.py:138)
+2025-09-26 02:58:38,911 - core.article_scraper - [INFO] - SUCCESS: Found title for 'https://sana.sy/locals/2293749/' using selector #2: 'h1'. (article_scraper.py:31)
+2025-09-26 02:58:38,955 - core.article_scraper - [INFO] - SUCCESS: Found content container for 'https://sana.sy/locals/2293749/' using selector #5: 'div > div.s-ct > div.s-ct-wrap > div.s-ct-inner'. (article_scraper.py:31)
+2025-09-26 02:58:38,980 - core.article_scraper - [INFO] - Found OG image: https://cdn.sananews.sy/2025/09/photo_2025-09-25_23-00-17-1024x683.jpg (article_scraper.py:186)
+2025-09-26 02:58:39,580 - core.permalink_generator - [INFO] - Original: 'لجنة انتخابات مجلس الشعب تبحث ...' -> Suggested Title: 'The People's Assembly elections committee discusse...', Slug base: 'the-peoples-assembly-elections-committee-discusses-with-the-european-union' (permalink_generator.py:47)
+Defined crop area (0,0,0,0) is invalid for image 891x649. Skipping fixed crop.
+2025-09-26 02:58:41,397 - BotRunner - [INFO] - Main image hosted: http://i.ibb.co/yBSLjfbF/main-the-peoples-assembly-elections-1758844720.jpg (main.py:139)
+Defined crop area (0,0,0,0) is invalid for image 2228x1622. Skipping fixed crop.
+Defined crop area (0,0,0,0) is invalid for image 2228x1622. Skipping fixed crop.
+Defined crop area (0,0,0,0) is invalid for image 2228x1622. Skipping fixed crop.
+Defined crop area (0,0,0,0) is invalid for image 2228x1622. Skipping fixed crop.
+2025-09-26 02:58:53,745 - core.content_formatter - [INFO] - Applying 4 dynamic replacement rules. (content_formatter.py:76)
+2025-09-26 02:58:53,750 - core.content_formatter - [INFO] - HTML content formatted for Blogger. (content_formatter.py:156)
+2025-09-26 02:58:53,750 - BotRunner - [INFO] - Using custom labels provided by user: ['دليلك في الأخبار', 'دليلك في سوريا'] (main.py:172)
+2025-09-26 02:58:53,750 - BotRunner - [INFO] - Publishing to Blogger. Title: 'لجنة انتخابات مجلس الشعب تبحث مع سفراء الاتحاد الأوروبي الاستحقاق الانتخابي المقبل (The People's Assembly elections committee discusses with the European Union ambassadors next electoral entitlement)', Labels: ['دليلك في الأخبار', 'دليلك في سوريا'] (main.py:183)
+2025-09-26 02:58:53,751 - core.blogger_client - [INFO] - Creating post: 'لجنة انتخابات مجلس الشعب تبحث مع سفراء الاتحاد الأوروبي الاس...' (Draft: False) (blogger_client.py:116)
+2025-09-26 02:58:54,793 - core.blogger_client - [INFO] - Post created successfully: http://news.toiall.com/2025/09/peoples-assembly-elections-committee.html (blogger_client.py:126)
+2025-09-26 02:58:54,793 - BotRunner - [INFO] - Successfully published 'https://sana.sy/locals/2293749/' to Blogger: http://news.toiall.com/2025/09/peoples-assembly-elections-committee.html (main.py:191)
+2025-09-26 02:58:54,793 - BotRunner - [INFO] - --- Processing Article (4/8): https://sana.sy/locals/2293675/ --- (main.py:120)
+2025-09-26 02:58:54,794 - core.article_scraper - [INFO] - Scraping https://sana.sy/locals/2293675/ (via cloudscraper) (article_scraper.py:138)
+2025-09-26 02:58:55,597 - core.article_scraper - [INFO] - SUCCESS: Found title for 'https://sana.sy/locals/2293675/' using selector #2: 'h1'. (article_scraper.py:31)
+2025-09-26 02:58:55,648 - core.article_scraper - [INFO] - SUCCESS: Found content container for 'https://sana.sy/locals/2293675/' using selector #5: 'div > div.s-ct > div.s-ct-wrap > div.s-ct-inner'. (article_scraper.py:31)
+2025-09-26 02:58:55,675 - core.article_scraper - [INFO] - Found OG image: https://cdn.sananews.sy/2025/09/33-13.jpg (article_scraper.py:186)
+2025-09-26 02:58:57,145 - core.permalink_generator - [INFO] - Original: 'انطلاق معرض “سيريا بيلد” للبنا...' -> Suggested Title: 'The launch of the "Syria Bild" construction exhibi...', Slug base: 'the-launch-of-the-syria-bild-construction-exhibition-tomorrow-in-damascus-w' (permalink_generator.py:47)
+Defined crop area (0,0,0,0) is invalid for image 557x342. Skipping fixed crop.
+2025-09-26 02:58:58,843 - BotRunner - [INFO] - Main image hosted: http://i.ibb.co/zVs2FwX7/main-the-launch-of-the-syria-bild-c-1758844737.jpg (main.py:139)
+2025-09-26 02:58:58,844 - core.content_formatter - [INFO] - Applying 4 dynamic replacement rules. (content_formatter.py:76)
+2025-09-26 02:58:58,848 - core.content_formatter - [INFO] - HTML content formatted for Blogger. (content_formatter.py:156)
+2025-09-26 02:58:58,848 - BotRunner - [INFO] - Using custom labels provided by user: ['دليلك في الأخبار', 'دليلك في سوريا'] (main.py:172)
+2025-09-26 02:58:58,848 - BotRunner - [INFO] - Publishing to Blogger. Title: 'انطلاق معرض “سيريا بيلد” للبناء غداً بدمشق بمشاركة شركات محلية ودولية واسعة (The launch of the "Syria Bild" construction exhibition tomorrow in Damascus, with the participation of broad local and international companies)', Labels: ['دليلك في الأخبار', 'دليلك في سوريا'] (main.py:183)
+2025-09-26 02:58:58,848 - core.blogger_client - [INFO] - Creating post: 'انطلاق معرض “سيريا بيلد” للبناء غداً بدمشق بمشاركة شركات محل...' (Draft: False) (blogger_client.py:116)
+2025-09-26 02:59:00,053 - core.blogger_client - [INFO] - Post created successfully: http://news.toiall.com/2025/09/launch-of-syria-bild-construction.html (blogger_client.py:126)
+2025-09-26 02:59:00,053 - BotRunner - [INFO] - Successfully published 'https://sana.sy/locals/2293675/' to Blogger: http://news.toiall.com/2025/09/launch-of-syria-bild-construction.html (main.py:191)
+2025-09-26 02:59:00,053 - BotRunner - [INFO] - --- Processing Article (5/8): https://sana.sy/locals/2293778/ --- (main.py:120)
+2025-09-26 02:59:00,053 - core.article_scraper - [INFO] - Scraping https://sana.sy/locals/2293778/ (via cloudscraper) (article_scraper.py:138)
+2025-09-26 02:59:00,871 - core.article_scraper - [INFO] - SUCCESS: Found title for 'https://sana.sy/locals/2293778/' using selector #2: 'h1'. (article_scraper.py:31)
+2025-09-26 02:59:00,943 - core.article_scraper - [INFO] - SUCCESS: Found content container for 'https://sana.sy/locals/2293778/' using selector #5: 'div > div.s-ct > div.s-ct-wrap > div.s-ct-inner'. (article_scraper.py:31)
+2025-09-26 02:59:00,973 - core.article_scraper - [INFO] - Found OG image: https://cdn.sananews.sy/2025/09/IMG_1140-1-1024x683.jpeg (article_scraper.py:186)
+2025-09-26 02:59:01,639 - core.permalink_generator - [INFO] - Original: 'إدلب تستعد لإطلاق حملة الوفاء ...' -> Suggested Title: 'Idlib is preparing to launch the loyalty campaign ...', Slug base: 'idlib-is-preparing-to-launch-the-loyalty-campaign-tomorrow-evening-to-suppo' (permalink_generator.py:47)
+Defined crop area (0,0,0,0) is invalid for image 891x649. Skipping fixed crop.
+2025-09-26 02:59:03,852 - BotRunner - [INFO] - Main image hosted: http://i.ibb.co/PGm75b86/main-idlib-is-preparing-to-launch-t-1758844742.jpg (main.py:139)
+Defined crop area (0,0,0,0) is invalid for image 2228x1622. Skipping fixed crop.
+Defined crop area (0,0,0,0) is invalid for image 2228x1622. Skipping fixed crop.
+Defined crop area (0,0,0,0) is invalid for image 891x649. Skipping fixed crop.
+Defined crop area (0,0,0,0) is invalid for image 891x649. Skipping fixed crop.
+2025-09-26 02:59:14,918 - core.content_formatter - [INFO] - Applying 4 dynamic replacement rules. (content_formatter.py:76)
+2025-09-26 02:59:14,923 - core.content_formatter - [INFO] - HTML content formatted for Blogger. (content_formatter.py:156)
+2025-09-26 02:59:14,923 - BotRunner - [INFO] - Using custom labels provided by user: ['دليلك في الأخبار', 'دليلك في سوريا'] (main.py:172)
+2025-09-26 02:59:14,923 - BotRunner - [INFO] - Publishing to Blogger. Title: 'إدلب تستعد لإطلاق حملة الوفاء مساء غد لدعم المناطق المتضررة وإعادة الإعمار (Idlib is preparing to launch the loyalty campaign tomorrow evening to support the affected areas and reconstruction)', Labels: ['دليلك في الأخبار', 'دليلك في سوريا'] (main.py:183)
+2025-09-26 02:59:14,924 - core.blogger_client - [INFO] - Creating post: 'إدلب تستعد لإطلاق حملة الوفاء مساء غد لدعم المناطق المتضررة ...' (Draft: False) (blogger_client.py:116)
+2025-09-26 02:59:15,976 - core.blogger_client - [INFO] - Post created successfully: http://news.toiall.com/2025/09/idlib-is-preparing-to-launch-loyalty.html (blogger_client.py:126)
+2025-09-26 02:59:15,976 - BotRunner - [INFO] - Successfully published 'https://sana.sy/locals/2293778/' to Blogger: http://news.toiall.com/2025/09/idlib-is-preparing-to-launch-loyalty.html (main.py:191)
+2025-09-26 02:59:15,976 - BotRunner - [INFO] - --- Processing Article (6/8): https://sana.sy/education/2293734/ --- (main.py:120)
+2025-09-26 02:59:15,977 - core.article_scraper - [INFO] - Scraping https://sana.sy/education/2293734/ (via cloudscraper) (article_scraper.py:138)
+2025-09-26 02:59:16,542 - core.article_scraper - [INFO] - SUCCESS: Found title for 'https://sana.sy/education/2293734/' using selector #2: 'h1'. (article_scraper.py:31)
+2025-09-26 02:59:16,593 - core.article_scraper - [INFO] - SUCCESS: Found content container for 'https://sana.sy/education/2293734/' using selector #5: 'div > div.s-ct > div.s-ct-wrap > div.s-ct-inner'. (article_scraper.py:31)
+2025-09-26 02:59:16,615 - core.article_scraper - [INFO] - Found OG image: https://cdn.sananews.sy/2025/09/ROD_1873-4-1024x683.jpg (article_scraper.py:186)
+2025-09-26 02:59:17,180 - core.permalink_generator - [INFO] - Original: 'التعليم العالي: بدء التقدم للم...' -> Suggested Title: 'Higher Education: The start of progress for univer...', Slug base: 'higher-education-the-start-of-progress-for-university-flocks-as-of-next-oct' (permalink_generator.py:47)
+Defined crop area (0,0,0,0) is invalid for image 891x649. Skipping fixed crop.
+2025-09-26 02:59:19,367 - BotRunner - [INFO] - Main image hosted: http://i.ibb.co/VWCfKcyV/main-higher-education-the-start-of-1758844758.jpg (main.py:139)
+2025-09-26 02:59:19,369 - core.content_formatter - [INFO] - Applying 4 dynamic replacement rules. (content_formatter.py:76)
+2025-09-26 02:59:19,376 - core.content_formatter - [INFO] - HTML content formatted for Blogger. (content_formatter.py:156)
+2025-09-26 02:59:19,377 - BotRunner - [INFO] - Using custom labels provided by user: ['دليلك في الأخبار', 'دليلك في سوريا'] (main.py:172)
+2025-09-26 02:59:19,377 - BotRunner - [INFO] - Publishing to Blogger. Title: 'التعليم العالي: بدء التقدم للمفاضلات الجامعية اعتباراً من 1 تشرين الأول المقبل (Higher Education: The start of progress for university flocks as of next October)', Labels: ['دليلك في الأخبار', 'دليلك في سوريا'] (main.py:183)
+2025-09-26 02:59:19,377 - core.blogger_client - [INFO] - Creating post: 'التعليم العالي: بدء التقدم للمفاضلات الجامعية اعتباراً من 1 ...' (Draft: False) (blogger_client.py:116)
+2025-09-26 02:59:20,302 - core.blogger_client - [ERROR] - Failed to create post on Blogger: <HttpError 403 when requesting https://blogger.googleapis.com/v3/blogs/3714169846779613939/posts?isDraft=false&fetchImages=true&alt=json returned "You've reached the limit for creating posts within a specific timeframe. Please try again later.". Details: "[{'message': "You've reached the limit for creating posts within a specific timeframe. Please try again later.", 'domain': 'usageLimits', 'reason': 'quotaExceeded'}]"> (blogger_client.py:129)
+Traceback (most recent call last):
+  File "C:\Users\Khale\OneDrive\Desktop\projects\auto_online\core\blogger_client.py", line 124, in create_post
+    created_post = request.execute()
+  File "C:\Users\Khale\AppData\Local\Programs\Python\Python313\Lib\site-packages\googleapiclient\_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+  File "C:\Users\Khale\AppData\Local\Programs\Python\Python313\Lib\site-packages\googleapiclient\http.py", line 938, in execute
+    raise HttpError(resp, content, uri=self.uri)
+googleapiclient.errors.HttpError: <HttpError 403 when requesting https://blogger.googleapis.com/v3/blogs/3714169846779613939/posts?isDraft=false&fetchImages=true&alt=json returned "You've reached the limit for creating posts within a specific timeframe. Please try again later.". Details: "[{'message': "You've reached the limit for creating posts within a specific timeframe. Please try again later.", 'domain': 'usageLimits', 'reason': 'quotaExceeded'}]">
+2025-09-26 02:59:20,312 - core.blogger_client - [ERROR] - Blogger API error details: {
+  "error": {
+    "code": 403,
+    "message": "You've reached the limit for creating posts within a specific timeframe. Please try again later.",
+    "errors": [
+      {
+        "message": "You've reached the limit for creating posts within a specific timeframe. Please try again later.",
+        "domain": "usageLimits",
+        "reason": "quotaExceeded"
+      }
+    ]
+  }
+}
+ (blogger_client.py:133)
+2025-09-26 02:59:20,312 - BotRunner - [ERROR] - Failed to publish https://sana.sy/education/2293734/ to Blogger. (main.py:198)
+2025-09-26 02:59:20,312 - BotRunner - [INFO] - --- Processing Article (7/8): https://sana.sy/miscellaneous/2293245/ --- (main.py:120)
+2025-09-26 02:59:20,312 - core.article_scraper - [INFO] - Scraping https://sana.sy/miscellaneous/2293245/ (via cloudscraper) (article_scraper.py:138)
+2025-09-26 02:59:21,334 - core.article_scraper - [INFO] - SUCCESS: Found title for 'https://sana.sy/miscellaneous/2293245/' using selector #2: 'h1'. (article_scraper.py:31)
+2025-09-26 02:59:21,392 - core.article_scraper - [INFO] - SUCCESS: Found content container for 'https://sana.sy/miscellaneous/2293245/' using selector #5: 'div > div.s-ct > div.s-ct-wrap > div.s-ct-inner'. (article_scraper.py:31)
+2025-09-26 02:59:21,419 - core.article_scraper - [INFO] - Found OG image: https://cdn.sananews.sy/2025/09/DSC_8929-1024x683.jpg (article_scraper.py:186)
+2025-09-26 02:59:22,136 - core.permalink_generator - [INFO] - Original: 'فعالية للأطفال الصم وأقرانهم ب...' -> Suggested Title: 'The effectiveness of the deaf children and their p...', Slug base: 'the-effectiveness-of-the-deaf-children-and-their-peers-on-the-occasion-of-t' (permalink_generator.py:47)
+Defined crop area (0,0,0,0) is invalid for image 891x649. Skipping fixed crop.
+2025-09-26 02:59:24,351 - BotRunner - [INFO] - Main image hosted: http://i.ibb.co/GQ8dR779/main-the-effectiveness-of-the-deaf-1758844763.jpg (main.py:139)
+Defined crop area (0,0,0,0) is invalid for image 2228x1622. Skipping fixed crop.
+Defined crop area (0,0,0,0) is invalid for image 2228x1622. Skipping fixed crop.
+Defined crop area (0,0,0,0) is invalid for image 2228x1622. Skipping fixed crop.
+Defined crop area (0,0,0,0) is invalid for image 2228x1622. Skipping fixed crop.
+Defined crop area (0,0,0,0) is invalid for image 2228x1622. Skipping fixed crop.
+Defined crop area (0,0,0,0) is invalid for image 2228x1622. Skipping fixed crop.
+2025-09-26 02:59:43,954 - core.content_formatter - [INFO] - Applying 4 dynamic replacement rules. (content_formatter.py:76)
+2025-09-26 02:59:43,959 - core.content_formatter - [INFO] - HTML content formatted for Blogger. (content_formatter.py:156)
+2025-09-26 02:59:43,959 - BotRunner - [INFO] - Using custom labels provided by user: ['دليلك في الأخبار', 'دليلك في سوريا'] (main.py:172)
+2025-09-26 02:59:43,960 - BotRunner - [INFO] - Publishing to Blogger. Title: 'فعالية للأطفال الصم وأقرانهم بمناسبة اليوم العالمي للغة الإشارة (The effectiveness of the deaf children and their peers on the occasion of the International Signal Language Day)', Labels: ['دليلك في الأخبار', 'دليلك في سوريا'] (main.py:183)
+2025-09-26 02:59:43,960 - core.blogger_client - [INFO] - Creating post: 'فعالية للأطفال الصم وأقرانهم بمناسبة اليوم العالمي للغة الإش...' (Draft: False) (blogger_client.py:116)
+2025-09-26 02:59:44,713 - core.blogger_client - [INFO] - Post created successfully: http://news.toiall.com/2025/09/effectiveness-of-deaf-children-and.html (blogger_client.py:126)
+2025-09-26 02:59:44,714 - BotRunner - [INFO] - Successfully published 'https://sana.sy/miscellaneous/2293245/' to Blogger: http://news.toiall.com/2025/09/effectiveness-of-deaf-children-and.html (main.py:191)
+2025-09-26 02:59:44,714 - BotRunner - [INFO] - --- Processing Article (8/8): https://sana.sy/education/2291870/ --- (main.py:120)
+2025-09-26 02:59:44,715 - core.article_scraper - [INFO] - Scraping https://sana.sy/education/2291870/ (via cloudscraper) (article_scraper.py:138)
+2025-09-26 02:59:45,871 - core.article_scraper - [INFO] - SUCCESS: Found title for 'https://sana.sy/education/2291870/' using selector #2: 'h1'. (article_scraper.py:31)
+2025-09-26 02:59:45,924 - core.article_scraper - [INFO] - SUCCESS: Found content container for 'https://sana.sy/education/2291870/' using selector #5: 'div > div.s-ct > div.s-ct-wrap > div.s-ct-inner'. (article_scraper.py:31)
+2025-09-26 02:59:45,949 - core.article_scraper - [INFO] - Found OG image: https://cdn.sananews.sy/2025/09/IMG_0943-1024x683.jpeg (article_scraper.py:186)
+2025-09-26 02:59:47,138 - core.permalink_generator - [INFO] - Original: 'تربية حماة تنتج 1000 مقعد مدرس...' -> Suggested Title: 'Hama breeding produces 1000 school seats to suppor...', Slug base: 'hama-breeding-produces-1000-school-seats-to-support-education-in-the-areas' (permalink_generator.py:47)
+Defined crop area (0,0,0,0) is invalid for image 891x649. Skipping fixed crop.
+2025-09-26 02:59:49,005 - BotRunner - [INFO] - Main image hosted: http://i.ibb.co/spx92s24/main-hama-breeding-produces-1000-sc-1758844788.jpg (main.py:139)
+Defined crop area (0,0,0,0) is invalid for image 2228x1622. Skipping fixed crop.
+Defined crop area (0,0,0,0) is invalid for image 891x649. Skipping fixed crop.
+Defined crop area (0,0,0,0) is invalid for image 891x649. Skipping fixed crop.
+Defined crop area (0,0,0,0) is invalid for image 891x649. Skipping fixed crop.
+2025-09-26 02:59:57,350 - core.content_formatter - [INFO] - Applying 4 dynamic replacement rules. (content_formatter.py:76)
+2025-09-26 02:59:57,355 - core.content_formatter - [INFO] - HTML content formatted for Blogger. (content_formatter.py:156)
+2025-09-26 02:59:57,355 - BotRunner - [INFO] - Using custom labels provided by user: ['دليلك في الأخبار', 'دليلك في سوريا'] (main.py:172)
+2025-09-26 02:59:57,355 - BotRunner - [INFO] - Publishing to Blogger. Title: 'تربية حماة تنتج 1000 مقعد مدرسي لدعم التعليم في المناطق العائدة بعد النزوح (Hama breeding produces 1000 school seats to support education in the areas returning after displacement)', Labels: ['دليلك في الأخبار', 'دليلك في سوريا'] (main.py:183)
+2025-09-26 02:59:57,355 - core.blogger_client - [INFO] - Creating post: 'تربية حماة تنتج 1000 مقعد مدرسي لدعم التعليم في المناطق العا...' (Draft: False) (blogger_client.py:116)
+2025-09-26 02:59:57,846 - core.blogger_client - [INFO] - Post created successfully: http://news.toiall.com/2025/09/1000-hama-breeding-produces-1000-school.html (blogger_client.py:126)
+2025-09-26 02:59:57,847 - BotRunner - [INFO] - Successfully published 'https://sana.sy/education/2291870/' to Blogger: http://news.toiall.com/2025/09/1000-hama-breeding-produces-1000-school.html (main.py:191)
+2025-09-26 02:59:57,847 - BotRunner - [INFO] - Published 7 new articles in this cycle. (main.py:200)
+2025-09-26 02:59:57,847 - BotRunner - [INFO] - ===== BOT CYCLE FINISHED ===== (main.py:201)

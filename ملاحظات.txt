@@ -1,0 +1,161 @@
+
+# --- القسم الثاني: مصادقات جوجل ---
+# (هذا القسم يبقى كما هو باستخدام السلاسل النصية متعددة الأسطر لأنه يحتوي على JSON)
+[google_creds]
+account_1_token = """
+a0AQQ_BDQOQ0mkz50kzujYUbkrFGeJI79UY1OkEdg1qsSOA7NCV3o3csNMdzeeDkSTnSR3DaSWJsMbYa2ZXiWaWZmr3vzakfXRkJGRCb9PWHRIayf5cQrabnlllYs00u5MN
+"""
+account_1_secret = """
+{
+  "installed": {
+    "client_id": "...", "project_id": "...", "auth_uri": "...",
+    "token_uri": "...", "auth_provider_x509_cert_url": "...",
+  "client_secret": "...", "redirect_uris": ["..."]
+  }
+}
+"""
+admin_account_token = """
+{ ... }
+"""
+admin_account_secret = """
+{ ... }
+"""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# -----------------------------------------------------------------
+# ملف الأسرار والإعدادات الرئيسي للتطبيق (.streamlit/secrets.toml)
+# -----------------------------------------------------------------
+
+# --- القسم الأول: إعدادات التطبيق العامة ---
+# كل إعدادات المستخدمين والمدونات توضع تحت هذا القسم.
+[app_config]
+
+# --- بيانات المستخدمين ---
+# كل مستخدم يتم تعريفه بقسم خاص به مثل [app_config.users.اسم_المستخدم]
+
+# --- مستخدم المشرف (Admin) ---
+[app_config.users.admin]
+password = "CHANGE_THIS_ADMIN_PASSWORD"      # كلمة مرور المشرف
+credential_path = "google_credentials/admin_account" # مسار ملفات المصادقة الخاصة به
+post_count = 0                               # عداد المقالات (لا يهم كثيرًا للمشرف)
+earnings = 0.0                               # الأرباح (لا تهم للمشرف)
+rating = "Admin"                             # التقييم (نص ثابت)
+
+# إعدادات المدونة التي سيستخدمها المشرف في "استخراج الروابط"
+[app_config.users.admin.blogger_settings]
+blog_id = "YOUR_ADMIN_BLOG_ID"
+api_key = "YOUR_ADMIN_API_KEY"
+
+# إعدادات تليجرام التي سيستخدمها المشرف في "صانع الصور"
+[app_config.users.admin.telegram_settings]
+bot_token = "YOUR_ADMIN_TELEGRAM_BOT_TOKEN"
+channel_id = "@YourAdminTelegramChannel"
+
+# قائمة المدونات التي يمكن للمشرف تنظيفها (يمكن أن تكون أكثر من واحدة)
+[[app_config.users.admin.blogs]]
+name = "المدونة الرئيسية للمشرف"
+id = "YOUR_ADMIN_BLOG_ID"
+
+
+# --- مستخدم عادي (كمثال: user_ali) ---
+[app_config.users.user_ali]
+password = "strong_password_123"             # كلمة مرور المستخدم
+credential_path = "google_credentials/account_1" # مسار ملفات المصادقة الخاصة به
+post_count = 0                               # يبدأ من الصفر
+earnings = 0.0                               # تبدأ من الصفر
+rating = "لم يتم التقييم بعد"                # تقييم مبدئي
+
+# إعدادات المدونة التي سيستخدمها هذا المستخدم في "استخراج الروابط"
+[app_config.users.user_ali.blogger_settings]
+blog_id = "3714169846779613939"
+api_key = "AIzaSy...USER_ALI_API_KEY"
+
+# إعدادات تليجرام التي سيستخدمها هذا المستخدم في "صانع الصور"
+[app_config.users.user_ali.telegram_settings]
+bot_token = "TELEGRAM_TOKEN_FOR_ALI"
+channel_id = "@AlisChannelOrID"
+
+# قائمة المدونات التي يمكن لهذا المستخدم تنظيفها
+[[app_config.users.user_ali.blogs]]
+name = "مدونة علي التقنية"
+id = "3714169846779613939"
+
+
+# --- شرح قواعد التنظيف (Cleaning Rules) ---
+# هذه القواعد تطبق على المقالات القديمة عند استخدام "تنظيف المقالات"
+[app_config.users.user_ali.cleaning_rules]
+# قائمة بالكلمات والرموز التي سيتم حذفها بالكامل
+remove_symbols = ["{", "}", "'", "“", "”", "اقرأ أيضا:", "شاهد أيضا:"]
+
+# قائمة بقواعد البحث والاستبدال (كرر هذه الكتلة لكل قاعدة جديدة)
+[[app_config.users.user_ali.cleaning_rules.replacements]]
+find = "الولايات المتحدة الامريكية"
+replace_with = "الولايات المتحدة"
+
+[[app_config.users.user_ali.cleaning_rules.replacements]]
+find = "روسيا الاتحادية"
+replace_with = "روسيا"
+
+
+# --- شرح قواعد النشر (Publishing Rules) ---
+# هذه القواعد تطبق على المقالات الجديدة أثناء عملية "نشر المقالات"
+[app_config.users.user_ali.publishing_rules]
+
+# قائمة بقواعد البحث والاستبدال (كرر هذه الكتلة لكل قاعدة جديدة)
+[[app_config.users.user_ali.publishing_rules.replacements]]
+find = "المصدر"
+replace_with = "المصدر: دليلك نيوز"
+
+[[app_config.users.user_ali.publishing_rules.replacements]]
+find = "##نهاية##"
+replace_with = "--- نهاية المقال ---"
+
+
+
+# --- القسم الثاني: مصادقات جوجل (لا تغير بنيته) ---
+# هذا القسم يستخدم لتخزين محتوى ملفات token.json و client_secret.json
+# اسم المفتاح (مثل account_1_token) يجب أن يطابق اسم المجلد في credential_path
+[google_creds]
+
+# -- بيانات حساب user_ali (account_1) --
+account_1_token = """
+{
+  "token": "...", "refresh_token": "...", "token_uri": "...",
+  "client_id": "...", "client_secret": "...", "scopes": ["..."], "expiry": "..."
+}
+"""
+
+account_1_secret = """
+{
+  "installed": { "client_id": "...", "project_id": "...", "auth_uri": "...", "token_uri": "...", "auth_provider_x509_cert_url": "...", "client_secret": "...", "redirect_uris": ["..."] }
+}
+"""
+
+# -- بيانات حساب admin_account --
+admin_account_token = """
+{
+  "token": "...", "refresh_token": "...", "token_uri": "...",
+  "client_id": "...", "client_secret": "...", "scopes": ["..."], "expiry": "..."
+}
+"""
+
+admin_account_secret = """
+{
+  "installed": { "client_id": "...", "project_id": "...", "auth_uri": "...", "token_uri": "...", "auth_provider_x509_cert_url": "...", "client_secret": "...", "redirect_uris": ["..."] }
+}
+"""

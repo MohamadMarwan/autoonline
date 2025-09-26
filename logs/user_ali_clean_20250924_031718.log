@@ -1,0 +1,11 @@
+--- بدء السجل في 2025-09-24 03:17:18 ---
+Traceback (most recent call last):
+  File "C:\Users\Khale\OneDrive\Desktop\projects\auto_online\bot_scripts\cleaner\clean_posts.py", line 40, in <module>
+    clean_post_titles_and_content(args.blog_id, args.creds_path, args.limit)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Khale\OneDrive\Desktop\projects\auto_online\bot_scripts\cleaner\clean_posts.py", line 27, in clean_post_titles_and_content
+    service = get_blogger_service(creds_path) # \u0645\u0631\u0631 \u0627\u0644\u0645\u0633\u0627\u0631
+  File "C:\Users\Khale\OneDrive\Desktop\projects\auto_online\bot_scripts\cleaner\clean_posts.py", line 14, in get_blogger_service
+    creds = Credentials.from_authorized_user_file(token_file, SCOPES)
+            ^^^^^^^^^^^
+NameError: name 'Credentials' is not defined

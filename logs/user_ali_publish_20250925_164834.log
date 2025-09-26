@@ -1,0 +1,56 @@
+--- بدء السجل في 2025-09-25 16:48:34 ---
+2025-09-25 16:48:40,618 - BotRunner - [INFO] - Config loaded from C:\Users\Khale\OneDrive\Desktop\projects\auto_online\bot_scripts\scraper\config.ini (main.py:41)
+2025-09-25 16:48:40,619 - BotRunner - [INFO] - ===== BOT CYCLE STARTED ===== (main.py:64)
+2025-09-25 16:48:40,619 - BotRunner - [WARNING] - File 'published_source_urls.txt' not found. A new one will be created. (main.py:48)
+2025-09-25 16:48:40,620 - BotRunner - [INFO] - Loaded 0 previously published URLs. (main.py:66)
+2025-09-25 16:48:40,622 - BotRunner - [INFO] - Successfully loaded publishing rules from C:\Users\Khale\AppData\Local\Temp\tmpkogpyole.json (main.py:74)
+2025-09-25 16:48:40,682 - core.article_scraper - [INFO] - ArticleScraper initialized with CloudScraper UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 (article_scraper.py:22)
+2025-09-25 16:48:40,686 - core.permalink_generator - [INFO] - DeepL Translator (Google engine) initialized for permalink/title suggestion. (permalink_generator.py:18)
+2025-09-25 16:48:40,689 - core.blogger_client - [INFO] - Using BlogID: 3714169846779613939 for Blogger operations. (blogger_client.py:39)
+2025-09-25 16:48:40,692 - core.blogger_client - [INFO] - Credentials expired. Refreshing token... (blogger_client.py:58)
+2025-09-25 16:48:41,632 - core.blogger_client - [INFO] - Token refreshed successfully. (blogger_client.py:60)
+2025-09-25 16:48:41,635 - core.blogger_client - [INFO] - Credentials saved to google_credentials/account_1\token.json (blogger_client.py:83)
+2025-09-25 16:48:41,646 - core.blogger_client - [INFO] - Blogger service client initialized successfully. (blogger_client.py:93)
+2025-09-25 16:48:41,646 - BotRunner - [INFO] - Processing 1 specific URLs provided. (main.py:99)
+2025-09-25 16:48:41,647 - BotRunner - [INFO] - --- Processing Article (1/1): https://sana.sy/locals/2292627/ --- (main.py:120)
+2025-09-25 16:48:41,647 - core.article_scraper - [INFO] - Scraping https://sana.sy/locals/2292627/ (via cloudscraper) (article_scraper.py:138)
+2025-09-25 16:48:42,591 - core.article_scraper - [INFO] - SUCCESS: Found title for 'https://sana.sy/locals/2292627/' using selector #2: 'h1'. (article_scraper.py:31)
+2025-09-25 16:48:42,671 - core.article_scraper - [INFO] - SUCCESS: Found content container for 'https://sana.sy/locals/2292627/' using selector #5: 'div > div.s-ct > div.s-ct-wrap > div.s-ct-inner'. (article_scraper.py:31)
+2025-09-25 16:48:42,692 - core.article_scraper - [INFO] - Found OG image: https://cdn.sananews.sy/2025/09/photo_2025-09-19_20-21-01.jpg (article_scraper.py:186)
+2025-09-25 16:48:44,266 - core.permalink_generator - [INFO] - Original: 'لجنة انتخابات مجلس الشعب السور...' -> Suggested Title: 'The Syrian People's Assembly elections committee i...', Slug base: 'the-syrian-peoples-assembly-elections-committee-issues-the-initial-restorat' (permalink_generator.py:47)
+Defined crop area (0,0,0,0) is invalid for image 1114x811. Skipping fixed crop.
+2025-09-25 16:48:47,876 - BotRunner - [INFO] - Main image hosted: http://i.ibb.co/Gf8FChrQ/main-the-syrian-peoples-assembly-el-1758808126.jpg (main.py:139)
+2025-09-25 16:48:47,879 - core.content_formatter - [INFO] - Applying 1 dynamic replacement rules. (content_formatter.py:74)
+2025-09-25 16:48:47,884 - core.content_formatter - [INFO] - HTML content formatted for Blogger. (content_formatter.py:153)
+2025-09-25 16:48:47,884 - BotRunner - [INFO] - No custom labels provided, extracting automatically... (main.py:175)
+2025-09-25 16:48:47,886 - core.keyword_extractor - [INFO] - Extracting keywords (lang: ar, target: 0). Snippet: 'دمشق-سانا أصدرت اللجنة العليا لانتخابات مجلس الشعب السوري اليوم قوائم الترميم الأولية لأعضاء الهيئات...' (keyword_extractor.py:42)
+2025-09-25 16:48:47,913 - core.keyword_extractor - [ERROR] - NLTK LookupError for word_tokenize ('ar'): 
+**********************************************************************
+  Resource [93mpunkt_tab[0m not found.
+  Please use the NLTK Downloader to obtain the resource:
+
+  [31m>>> import nltk
+  >>> nltk.download('punkt_tab')
+  [0m
+  For more information see: https://www.nltk.org/data.html
+
+  Attempted to load [93mtokenizers/punkt_tab/arabic/[0m
+
+  Searched in:
+    - 'C:\\Users\\Khale/nltk_data'
+    - 'C:\\Users\\Khale\\AppData\\Local\\Programs\\Python\\Python313\\nltk_data'
+    - 'C:\\Users\\Khale\\AppData\\Local\\Programs\\Python\\Python313\\share\\nltk_data'
+    - 'C:\\Users\\Khale\\AppData\\Local\\Programs\\Python\\Python313\\lib\\nltk_data'
+    - 'C:\\Users\\Khale\\AppData\\Roaming\\nltk_data'
+    - 'C:\\nltk_data'
+    - 'D:\\nltk_data'
+    - 'E:\\nltk_data'
+**********************************************************************
+. Fallback tokenization. (keyword_extractor.py:51)
+2025-09-25 16:48:47,918 - core.keyword_extractor - [INFO] - Keywords extracted (ar): [] (keyword_extractor.py:60)
+2025-09-25 16:48:47,918 - BotRunner - [INFO] - Publishing to Blogger. Title: 'لجنة انتخابات مجلس الشعب السوري تصدر قوائم الترميم الأولية لأعضاء الهيئات الناخبة (The Syrian People's Assembly elections committee issues the initial restoration lists for members of the elite bodies)', Labels: ['دليلك في الأخبار', 'دليلك في سوريا'] (main.py:183)
+2025-09-25 16:48:47,919 - core.blogger_client - [INFO] - Creating post: 'لجنة انتخابات مجلس الشعب السوري تصدر قوائم الترميم الأولية ل...' (Draft: False) (blogger_client.py:116)
+2025-09-25 16:48:50,829 - core.blogger_client - [INFO] - Post created successfully: http://news.toiall.com/2025/09/syrian-peoples-assembly-elections_49.html (blogger_client.py:126)
+2025-09-25 16:48:50,830 - BotRunner - [INFO] - Successfully published 'https://sana.sy/locals/2292627/' to Blogger: http://news.toiall.com/2025/09/syrian-peoples-assembly-elections_49.html (main.py:191)
+2025-09-25 16:48:50,830 - BotRunner - [INFO] - Published 1 new articles in this cycle. (main.py:200)
+2025-09-25 16:48:50,831 - BotRunner - [INFO] - ===== BOT CYCLE FINISHED ===== (main.py:201)

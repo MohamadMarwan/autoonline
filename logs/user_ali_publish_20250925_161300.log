@@ -1,0 +1,4 @@
+--- بدء السجل في 2025-09-25 16:13:00 ---
+usage: main.py [-h] [--urls URLS [URLS ...]] --creds-path CREDS_PATH
+               [--labels [LABELS ...]]
+main.py: error: unrecognized arguments: --rules-file C:\Users\Khale\AppData\Local\Temp\tmpxt8kfcul.json

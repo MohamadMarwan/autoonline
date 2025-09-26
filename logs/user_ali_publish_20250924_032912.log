@@ -1,0 +1,5 @@
+--- بدء السجل في 2025-09-24 03:29:12 ---
+Traceback (most recent call last):
+  File "C:\Users\Khale\OneDrive\Desktop\projects\auto_online\bot_scripts\scraper\main.py", line 8, in <module>
+    from utils.logger_config import setup_logger
+ModuleNotFoundError: No module named 'utils'

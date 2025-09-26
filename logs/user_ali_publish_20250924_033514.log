@@ -1,0 +1,14 @@
+--- بدء السجل في 2025-09-24 03:35:14 ---
+2025-09-24 03:35:32,666 - BotRunner - [INFO] - Config loaded from C:\Users\Khale\OneDrive\Desktop\projects\auto_online\bot_scripts\scraper\config.ini (main.py:46)
+2025-09-24 03:35:32,666 - BotRunner - [INFO] - ===== BOT CYCLE STARTED ===== (main.py:68)
+2025-09-24 03:35:32,667 - BotRunner - [WARNING] - File 'published_source_urls.txt' not found. A new one will be created. Starting with an empty set. (main.py:53)
+2025-09-24 03:35:32,667 - BotRunner - [INFO] - Loaded 0 previously published URLs. (main.py:70)
+2025-09-24 03:35:32,750 - core.article_scraper - [INFO] - ArticleScraper initialized with CloudScraper UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 (article_scraper.py:22)
+2025-09-24 03:35:32,750 - core.content_formatter - [INFO] - Attempting to load replacement dictionary from: C:\Users\Khale\OneDrive\Desktop\projects\auto_online\bot_scripts\scraper\replacements.json (content_formatter.py:31)
+2025-09-24 03:35:32,750 - core.content_formatter - [WARNING] - Repl. dict file 'C:\Users\Khale\OneDrive\Desktop\projects\auto_online\bot_scripts\scraper\replacements.json' not found. (content_formatter.py:33)
+2025-09-24 03:35:32,751 - core.permalink_generator - [INFO] - DeepL Translator (Google engine) initialized for permalink/title suggestion. (permalink_generator.py:18)
+2025-09-24 03:35:32,758 - BotRunner - [CRITICAL] - Tool initialization error: BloggerClient.__init__() got an unexpected keyword argument 'creds_path' (main.py:90)
+Traceback (most recent call last):
+  File "C:\Users\Khale\OneDrive\Desktop\projects\auto_online\bot_scripts\scraper\main.py", line 84, in run_bot_cycle
+    blogger_bot_client = BloggerClient(config, creds_path=creds_path)
+TypeError: BloggerClient.__init__() got an unexpected keyword argument 'creds_path'

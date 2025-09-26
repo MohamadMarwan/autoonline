@@ -1,0 +1,6 @@
+--- بدء السجل في 2025-09-24 04:10:45 ---
+Traceback (most recent call last):
+  File "C:\Users\Khale\OneDrive\Desktop\projects\auto_online\bot_scripts\cleaner\clean_posts.py", line 141, in <module>
+    clean_post_titles_and_content(blog_id)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+TypeError: clean_post_titles_and_content() missing 2 required positional arguments: 'creds_path' and 'limit'

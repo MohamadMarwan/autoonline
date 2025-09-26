@@ -1,0 +1,10 @@
+--- بدء السجل في 2025-09-24 04:13:02 ---
+Traceback (most recent call last):
+  File "C:\Users\Khale\OneDrive\Desktop\projects\auto_online\bot_scripts\cleaner\clean_posts.py", line 136, in <module>
+    parser.add_argument("3714169846779613939", type=str, required=False, help="ID of the Blogger blog.")
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Khale\AppData\Local\Programs\Python\Python313\Lib\argparse.py", line 1447, in add_argument
+    kwargs = self._get_positional_kwargs(*args, **kwargs)
+  File "C:\Users\Khale\AppData\Local\Programs\Python\Python313\Lib\argparse.py", line 1569, in _get_positional_kwargs
+    raise TypeError(msg)
+TypeError: 'required' is an invalid argument for positionals

@@ -1,0 +1,3 @@
+--- بدء السجل في 2025-09-24 04:11:26 ---
+usage: clean_posts.py [-h] --creds-path CREDS_PATH [--limit LIMIT]
+clean_posts.py: error: unrecognized arguments: --blog-id ALI_BLOG_ID_123

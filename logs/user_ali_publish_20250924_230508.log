@@ -1,0 +1,12 @@
+--- بدء السجل في 2025-09-24 23:05:08 ---
+2025-09-24 23:05:14,515 - BotRunner - [INFO] - Config loaded from C:\Users\Khale\OneDrive\Desktop\projects\auto_online\bot_scripts\scraper\config.ini (main.py:40)
+2025-09-24 23:05:14,516 - BotRunner - [INFO] - ===== BOT CYCLE STARTED ===== (main.py:62)
+2025-09-24 23:05:14,516 - BotRunner - [WARNING] - File 'published_source_urls.txt' not found. A new one will be created. (main.py:47)
+2025-09-24 23:05:14,516 - BotRunner - [INFO] - Loaded 0 previously published URLs. (main.py:64)
+2025-09-24 23:05:14,593 - core.article_scraper - [INFO] - ArticleScraper initialized with CloudScraper UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 (article_scraper.py:22)
+2025-09-24 23:05:14,594 - core.content_formatter - [INFO] - Attempting to load replacement dictionary from: C:\Users\Khale\OneDrive\Desktop\projects\auto_online\bot_scripts\scraper\replacements.json (content_formatter.py:31)
+2025-09-24 23:05:14,595 - core.content_formatter - [INFO] - Loaded 6 replacement patterns from 'C:\Users\Khale\OneDrive\Desktop\projects\auto_online\bot_scripts\scraper\replacements.json'. (content_formatter.py:43)
+2025-09-24 23:05:14,596 - core.permalink_generator - [INFO] - DeepL Translator (Google engine) initialized for permalink/title suggestion. (permalink_generator.py:18)
+2025-09-24 23:05:14,598 - core.blogger_client - [INFO] - Using BlogID: 3714169846779613939 for Blogger operations. (blogger_client.py:39)
+2025-09-24 23:05:14,599 - core.blogger_client - [WARNING] - Error loading token from google_credentials/account_1\token.json: Expecting value: line 1 column 1 (char 0). Re-authenticating. (blogger_client.py:52)
+2025-09-24 23:05:14,599 - core.blogger_client - [INFO] - Starting new authentication flow using google_credentials/account_1\client_secret.json. (blogger_client.py:71)

@@ -1,0 +1,203 @@
+--- بدء السجل في 2025-09-24 21:51:44 ---
+2025-09-24 21:51:54,696 - BotRunner - [INFO] - Config loaded from C:\Users\Khale\OneDrive\Desktop\projects\auto_online\bot_scripts\scraper\config.ini (main.py:40)
+2025-09-24 21:51:54,698 - BotRunner - [INFO] - ===== BOT CYCLE STARTED ===== (main.py:62)
+2025-09-24 21:51:54,698 - BotRunner - [WARNING] - File 'published_source_urls.txt' not found. A new one will be created. (main.py:47)
+2025-09-24 21:51:54,698 - BotRunner - [INFO] - Loaded 0 previously published URLs. (main.py:64)
+2025-09-24 21:51:54,788 - core.article_scraper - [INFO] - ArticleScraper initialized with CloudScraper UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 (article_scraper.py:22)
+2025-09-24 21:51:54,788 - core.content_formatter - [INFO] - Attempting to load replacement dictionary from: C:\Users\Khale\OneDrive\Desktop\projects\auto_online\bot_scripts\scraper\replacements.json (content_formatter.py:31)
+2025-09-24 21:51:54,789 - core.content_formatter - [WARNING] - Repl. dict file 'C:\Users\Khale\OneDrive\Desktop\projects\auto_online\bot_scripts\scraper\replacements.json' not found. (content_formatter.py:33)
+2025-09-24 21:51:54,791 - core.permalink_generator - [INFO] - DeepL Translator (Google engine) initialized for permalink/title suggestion. (permalink_generator.py:18)
+2025-09-24 21:51:54,795 - core.blogger_client - [INFO] - Using BlogID: 3714169846779613939 for Blogger operations. (blogger_client.py:39)
+2025-09-24 21:51:54,802 - core.blogger_client - [INFO] - Blogger service client initialized successfully. (blogger_client.py:93)
+2025-09-24 21:51:54,802 - BotRunner - [INFO] - Processing 8 specific URLs provided. (main.py:89)
+2025-09-24 21:51:54,802 - BotRunner - [INFO] - --- Processing Article (1/8): https://sana.sy/economy/2292522/ --- (main.py:110)
+2025-09-24 21:51:54,803 - core.article_scraper - [INFO] - Scraping https://sana.sy/economy/2292522/ (via cloudscraper) (article_scraper.py:138)
+2025-09-24 21:51:56,021 - core.article_scraper - [INFO] - SUCCESS: Found title for 'https://sana.sy/economy/2292522/' using selector #2: 'h1'. (article_scraper.py:31)
+2025-09-24 21:51:56,106 - core.article_scraper - [INFO] - SUCCESS: Found content container for 'https://sana.sy/economy/2292522/' using selector #5: 'div > div.s-ct > div.s-ct-wrap > div.s-ct-inner'. (article_scraper.py:31)
+2025-09-24 21:51:56,150 - core.article_scraper - [INFO] - Found OG image: https://cdn.sananews.sy/2025/09/DSC00304-1024x683.jpg (article_scraper.py:186)
+2025-09-24 21:51:57,460 - core.permalink_generator - [INFO] - Original: 'هيئة دعم وتنمية الإنتاج المحلي...' -> Suggested Title: 'The Support and Development of Local Production an...', Slug base: 'the-support-and-development-of-local-production-and-export-development-sust' (permalink_generator.py:47)
+Defined crop area (0,0,0,0) is invalid for image 891x649. Skipping fixed crop.
+2025-09-24 21:51:59,790 - BotRunner - [INFO] - Main image hosted: http://i.ibb.co/7JptdpKc/main-the-support-and-development-of-1758738405.jpg (main.py:133)
+2025-09-24 21:51:59,817 - core.content_formatter - [INFO] - HTML content formatted for Blogger. (content_formatter.py:185)
+2025-09-24 21:51:59,818 - BotRunner - [INFO] - Using custom labels provided by user: ['دليلك في الأخبار', 'دليلك في سوريا'] (main.py:167)
+2025-09-24 21:51:59,818 - BotRunner - [INFO] - Publishing to Blogger. Title: 'هيئة دعم وتنمية الإنتاج المحلي والصادرات: برامج مستدامة للصادرات السورية (The Support and Development of Local Production and Export Development: Sustainable programs for Syrian exports)', Labels: ['دليلك في الأخبار', 'دليلك في سوريا'] (main.py:178)
+2025-09-24 21:51:59,819 - core.blogger_client - [INFO] - Creating post: 'هيئة دعم وتنمية الإنتاج المحلي والصادرات: برامج مستدامة للصا...' (Draft: False) (blogger_client.py:116)
+2025-09-24 21:52:02,487 - core.blogger_client - [INFO] - Post created successfully: http://news.toiall.com/2025/09/support-and-development-of-local_24.html (blogger_client.py:126)
+2025-09-24 21:52:02,487 - BotRunner - [INFO] - Successfully published 'https://sana.sy/economy/2292522/' to Blogger: http://news.toiall.com/2025/09/support-and-development-of-local_24.html (main.py:189)
+2025-09-24 21:52:02,488 - BotRunner - [INFO] - --- Processing Article (2/8): https://sana.sy/economy/2292581/ --- (main.py:110)
+2025-09-24 21:52:02,488 - core.article_scraper - [INFO] - Scraping https://sana.sy/economy/2292581/ (via cloudscraper) (article_scraper.py:138)
+2025-09-24 21:52:03,161 - core.article_scraper - [INFO] - SUCCESS: Found title for 'https://sana.sy/economy/2292581/' using selector #2: 'h1'. (article_scraper.py:31)
+2025-09-24 21:52:03,241 - core.article_scraper - [INFO] - SUCCESS: Found content container for 'https://sana.sy/economy/2292581/' using selector #5: 'div > div.s-ct > div.s-ct-wrap > div.s-ct-inner'. (article_scraper.py:31)
+2025-09-24 21:52:03,261 - core.article_scraper - [INFO] - Found OG image: https://cdn.sananews.sy/2025/09/WSS0076-1-1024x683.jpg (article_scraper.py:186)
+2025-09-24 21:52:04,520 - core.permalink_generator - [INFO] - Original: 'ارتفاع أسعار الذهب 10 آلاف لير...' -> Suggested Title: 'Gold prices rise 10 thousand pounds in the Syrian ...', Slug base: 'gold-prices-rise-10-thousand-pounds-in-the-syrian-market' (permalink_generator.py:47)
+Defined crop area (0,0,0,0) is invalid for image 891x649. Skipping fixed crop.
+2025-09-24 21:52:06,952 - BotRunner - [INFO] - Main image hosted: http://i.ibb.co/s9BQG86D/main-gold-prices-rise-10-thousand-p-1758738422.jpg (main.py:133)
+2025-09-24 21:52:06,963 - core.content_formatter - [INFO] - HTML content formatted for Blogger. (content_formatter.py:185)
+2025-09-24 21:52:06,964 - BotRunner - [INFO] - Using custom labels provided by user: ['دليلك في الأخبار', 'دليلك في سوريا'] (main.py:167)
+2025-09-24 21:52:06,964 - BotRunner - [INFO] - Publishing to Blogger. Title: 'ارتفاع أسعار الذهب 10 آلاف ليرة في السوق السورية (Gold prices rise 10 thousand pounds in the Syrian market)', Labels: ['دليلك في الأخبار', 'دليلك في سوريا'] (main.py:178)
+2025-09-24 21:52:06,965 - core.blogger_client - [INFO] - Creating post: 'ارتفاع أسعار الذهب 10 آلاف ليرة في السوق السورية (Gold price...' (Draft: False) (blogger_client.py:116)
+2025-09-24 21:52:08,169 - core.blogger_client - [INFO] - Post created successfully: http://news.toiall.com/2025/09/10-gold-prices-rise-10-thousand-pounds_24.html (blogger_client.py:126)
+2025-09-24 21:52:08,169 - BotRunner - [INFO] - Successfully published 'https://sana.sy/economy/2292581/' to Blogger: http://news.toiall.com/2025/09/10-gold-prices-rise-10-thousand-pounds_24.html (main.py:189)
+2025-09-24 21:52:08,170 - BotRunner - [INFO] - --- Processing Article (3/8): https://sana.sy/locals/2292627/ --- (main.py:110)
+2025-09-24 21:52:08,170 - core.article_scraper - [INFO] - Scraping https://sana.sy/locals/2292627/ (via cloudscraper) (article_scraper.py:138)
+2025-09-24 21:52:09,098 - core.article_scraper - [INFO] - SUCCESS: Found title for 'https://sana.sy/locals/2292627/' using selector #2: 'h1'. (article_scraper.py:31)
+2025-09-24 21:52:09,156 - core.article_scraper - [INFO] - SUCCESS: Found content container for 'https://sana.sy/locals/2292627/' using selector #5: 'div > div.s-ct > div.s-ct-wrap > div.s-ct-inner'. (article_scraper.py:31)
+2025-09-24 21:52:09,181 - core.article_scraper - [INFO] - Found OG image: https://cdn.sananews.sy/2025/09/photo_2025-09-19_20-21-01.jpg (article_scraper.py:186)
+2025-09-24 21:52:10,996 - core.permalink_generator - [INFO] - Original: 'لجنة انتخابات مجلس الشعب السور...' -> Suggested Title: 'The Syrian People's Assembly elections committee i...', Slug base: 'the-syrian-peoples-assembly-elections-committee-issues-the-initial-restorat' (permalink_generator.py:47)
+Defined crop area (0,0,0,0) is invalid for image 1114x811. Skipping fixed crop.
+2025-09-24 21:52:13,322 - BotRunner - [INFO] - Main image hosted: http://i.ibb.co/1fhx1fwX/main-the-syrian-peoples-assembly-el-1758738436.jpg (main.py:133)
+2025-09-24 21:52:13,330 - core.content_formatter - [INFO] - HTML content formatted for Blogger. (content_formatter.py:185)
+2025-09-24 21:52:13,331 - BotRunner - [INFO] - Using custom labels provided by user: ['دليلك في الأخبار', 'دليلك في سوريا'] (main.py:167)
+2025-09-24 21:52:13,331 - BotRunner - [INFO] - Publishing to Blogger. Title: 'لجنة انتخابات مجلس الشعب السوري تصدر قوائم الترميم الأولية لأعضاء الهيئات الناخبة (The Syrian People's Assembly elections committee issues the initial restoration lists for members of the elite bodies)', Labels: ['دليلك في الأخبار', 'دليلك في سوريا'] (main.py:178)
+2025-09-24 21:52:13,331 - core.blogger_client - [INFO] - Creating post: 'لجنة انتخابات مجلس الشعب السوري تصدر قوائم الترميم الأولية ل...' (Draft: False) (blogger_client.py:116)
+2025-09-24 21:52:15,848 - core.blogger_client - [INFO] - Post created successfully: http://news.toiall.com/2025/09/syrian-peoples-assembly-elections_98.html (blogger_client.py:126)
+2025-09-24 21:52:15,849 - BotRunner - [INFO] - Successfully published 'https://sana.sy/locals/2292627/' to Blogger: http://news.toiall.com/2025/09/syrian-peoples-assembly-elections_98.html (main.py:189)
+2025-09-24 21:52:15,849 - BotRunner - [INFO] - --- Processing Article (4/8): https://sana.sy/locals/2292612/ --- (main.py:110)
+2025-09-24 21:52:15,849 - core.article_scraper - [INFO] - Scraping https://sana.sy/locals/2292612/ (via cloudscraper) (article_scraper.py:138)
+2025-09-24 21:52:16,637 - core.article_scraper - [INFO] - SUCCESS: Found title for 'https://sana.sy/locals/2292612/' using selector #2: 'h1'. (article_scraper.py:31)
+2025-09-24 21:52:16,714 - core.article_scraper - [INFO] - SUCCESS: Found content container for 'https://sana.sy/locals/2292612/' using selector #5: 'div > div.s-ct > div.s-ct-wrap > div.s-ct-inner'. (article_scraper.py:31)
+2025-09-24 21:52:16,750 - core.article_scraper - [INFO] - Found OG image: https://cdn.sananews.sy/2025/09/IMG-20250924-WA0032-1024x683.jpg (article_scraper.py:186)
+2025-09-24 21:52:17,201 - core.permalink_generator - [INFO] - Original: 'حملة لتحصين 125 ألف رأس من الأ...' -> Suggested Title: 'A campaign to fortify 125,000 heads of cows agains...', Slug base: 'a-campaign-to-fortify-125000-heads-of-cows-against-foot-and-mouth-fever-in' (permalink_generator.py:47)
+Defined crop area (0,0,0,0) is invalid for image 891x649. Skipping fixed crop.
+2025-09-24 21:52:18,840 - BotRunner - [INFO] - Main image hosted: http://i.ibb.co/jPNvGGmw/main-a-campaign-to-fortify-125000-h-1758738447.jpg (main.py:133)
+Defined crop area (0,0,0,0) is invalid for image 2228x1622. Skipping fixed crop.
+Defined crop area (0,0,0,0) is invalid for image 2228x1622. Skipping fixed crop.
+Defined crop area (0,0,0,0) is invalid for image 891x649. Skipping fixed crop.
+Defined crop area (0,0,0,0) is invalid for image 891x649. Skipping fixed crop.
+Defined crop area (0,0,0,0) is invalid for image 891x649. Skipping fixed crop.
+2025-09-24 21:52:30,100 - core.content_formatter - [INFO] - HTML content formatted for Blogger. (content_formatter.py:185)
+2025-09-24 21:52:30,101 - BotRunner - [INFO] - Using custom labels provided by user: ['دليلك في الأخبار', 'دليلك في سوريا'] (main.py:167)
+2025-09-24 21:52:30,101 - BotRunner - [INFO] - Publishing to Blogger. Title: 'حملة لتحصين 125 ألف رأس من الأبقار ضد الحمى القلاعية في دمشق وريفها (A campaign to fortify 125,000 heads of cows against foot -and -mouth fever in Damascus and its countryside)', Labels: ['دليلك في الأخبار', 'دليلك في سوريا'] (main.py:178)
+2025-09-24 21:52:30,101 - core.blogger_client - [INFO] - Creating post: 'حملة لتحصين 125 ألف رأس من الأبقار ضد الحمى القلاعية في دمشق...' (Draft: False) (blogger_client.py:116)
+2025-09-24 21:52:31,040 - core.blogger_client - [INFO] - Post created successfully: http://news.toiall.com/2025/09/125-campaign-to-fortify-125000-heads-of_24.html (blogger_client.py:126)
+2025-09-24 21:52:31,040 - BotRunner - [INFO] - Successfully published 'https://sana.sy/locals/2292612/' to Blogger: http://news.toiall.com/2025/09/125-campaign-to-fortify-125000-heads-of_24.html (main.py:189)
+2025-09-24 21:52:31,041 - BotRunner - [INFO] - --- Processing Article (5/8): https://sana.sy/locals/2292523/ --- (main.py:110)
+2025-09-24 21:52:31,041 - core.article_scraper - [INFO] - Scraping https://sana.sy/locals/2292523/ (via cloudscraper) (article_scraper.py:138)
+2025-09-24 21:52:31,763 - core.article_scraper - [INFO] - SUCCESS: Found title for 'https://sana.sy/locals/2292523/' using selector #2: 'h1'. (article_scraper.py:31)
+2025-09-24 21:52:31,950 - core.article_scraper - [INFO] - SUCCESS: Found content container for 'https://sana.sy/locals/2292523/' using selector #5: 'div > div.s-ct > div.s-ct-wrap > div.s-ct-inner'. (article_scraper.py:31)
+2025-09-24 21:52:31,979 - core.article_scraper - [INFO] - Found OG image: https://cdn.sananews.sy/2025/09/٢٠٢٥٠٩٢٤_١٣٣١٥٣2.jpg (article_scraper.py:186)
+2025-09-24 21:52:33,486 - core.permalink_generator - [INFO] - Original: 'قوات الاحتلال الإسرائيلي تتوغل...' -> Suggested Title: 'The Israeli occupation forces penetrate into the e...', Slug base: 'the-israeli-occupation-forces-penetrate-into-the-eastern-samaniya-and-the-d' (permalink_generator.py:47)
+Defined crop area (0,0,0,0) is invalid for image 1542x1122. Skipping fixed crop.
+2025-09-24 21:52:35,962 - BotRunner - [INFO] - Main image hosted: http://i.ibb.co/39ppmcQH/main-the-israeli-occupation-forces-1758738509.jpg (main.py:133)
+2025-09-24 21:52:35,974 - core.content_formatter - [INFO] - HTML content formatted for Blogger. (content_formatter.py:185)
+2025-09-24 21:52:35,974 - BotRunner - [INFO] - Using custom labels provided by user: ['دليلك في الأخبار', 'دليلك في سوريا'] (main.py:167)
+2025-09-24 21:52:35,975 - BotRunner - [INFO] - Publishing to Blogger. Title: 'قوات الاحتلال الإسرائيلي تتوغل في الصمدانية الشرقية ورسم الحلبي بريف القنيطرة (The Israeli occupation forces penetrate into the eastern Samaniya and the drawing of Al -Halabi in Quneitra countryside)', Labels: ['دليلك في الأخبار', 'دليلك في سوريا'] (main.py:178)
+2025-09-24 21:52:35,975 - core.blogger_client - [INFO] - Creating post: 'قوات الاحتلال الإسرائيلي تتوغل في الصمدانية الشرقية ورسم الح...' (Draft: False) (blogger_client.py:116)
+2025-09-24 21:52:37,034 - core.blogger_client - [ERROR] - Failed to create post on Blogger: <HttpError 403 when requesting https://blogger.googleapis.com/v3/blogs/3714169846779613939/posts?isDraft=false&fetchImages=true&alt=json returned "You've reached the limit for creating posts within a specific timeframe. Please try again later.". Details: "[{'message': "You've reached the limit for creating posts within a specific timeframe. Please try again later.", 'domain': 'usageLimits', 'reason': 'quotaExceeded'}]"> (blogger_client.py:129)
+Traceback (most recent call last):
+  File "C:\Users\Khale\OneDrive\Desktop\projects\auto_online\core\blogger_client.py", line 124, in create_post
+    created_post = request.execute()
+  File "C:\Users\Khale\AppData\Local\Programs\Python\Python313\Lib\site-packages\googleapiclient\_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+  File "C:\Users\Khale\AppData\Local\Programs\Python\Python313\Lib\site-packages\googleapiclient\http.py", line 938, in execute
+    raise HttpError(resp, content, uri=self.uri)
+googleapiclient.errors.HttpError: <HttpError 403 when requesting https://blogger.googleapis.com/v3/blogs/3714169846779613939/posts?isDraft=false&fetchImages=true&alt=json returned "You've reached the limit for creating posts within a specific timeframe. Please try again later.". Details: "[{'message': "You've reached the limit for creating posts within a specific timeframe. Please try again later.", 'domain': 'usageLimits', 'reason': 'quotaExceeded'}]">
+2025-09-24 21:52:37,240 - core.blogger_client - [ERROR] - Blogger API error details: {
+  "error": {
+    "code": 403,
+    "message": "You've reached the limit for creating posts within a specific timeframe. Please try again later.",
+    "errors": [
+      {
+        "message": "You've reached the limit for creating posts within a specific timeframe. Please try again later.",
+        "domain": "usageLimits",
+        "reason": "quotaExceeded"
+      }
+    ]
+  }
+}
+ (blogger_client.py:133)
+2025-09-24 21:52:37,240 - BotRunner - [ERROR] - Failed to publish https://sana.sy/locals/2292523/ to Blogger. (main.py:197)
+2025-09-24 21:52:37,240 - BotRunner - [INFO] - --- Processing Article (6/8): https://sana.sy/education/2292421/ --- (main.py:110)
+2025-09-24 21:52:37,240 - core.article_scraper - [INFO] - Scraping https://sana.sy/education/2292421/ (via cloudscraper) (article_scraper.py:138)
+2025-09-24 21:52:37,977 - core.article_scraper - [INFO] - SUCCESS: Found title for 'https://sana.sy/education/2292421/' using selector #2: 'h1'. (article_scraper.py:31)
+2025-09-24 21:52:38,057 - core.article_scraper - [INFO] - SUCCESS: Found content container for 'https://sana.sy/education/2292421/' using selector #5: 'div > div.s-ct > div.s-ct-wrap > div.s-ct-inner'. (article_scraper.py:31)
+2025-09-24 21:52:38,084 - core.article_scraper - [INFO] - Found OG image: https://cdn.sananews.sy/2025/09/WSS0071-Copy-2-1024x683.jpg (article_scraper.py:186)
+2025-09-24 21:52:38,757 - core.permalink_generator - [INFO] - Original: 'التعليم العالي تخفض معدلات الق...' -> Suggested Title: 'Higher education reduces admission rates for Syria...', Slug base: 'higher-education-reduces-admission-rates-for-syrian-students-returning-from' (permalink_generator.py:47)
+Defined crop area (0,0,0,0) is invalid for image 891x649. Skipping fixed crop.
+2025-09-24 21:52:40,953 - BotRunner - [INFO] - Main image hosted: http://i.ibb.co/DfMtYnHV/main-higher-education-reduces-admis-1758738520.jpg (main.py:133)
+2025-09-24 21:52:40,961 - core.content_formatter - [INFO] - HTML content formatted for Blogger. (content_formatter.py:185)
+2025-09-24 21:52:40,961 - BotRunner - [INFO] - Using custom labels provided by user: ['دليلك في الأخبار', 'دليلك في سوريا'] (main.py:167)
+2025-09-24 21:52:40,962 - BotRunner - [INFO] - Publishing to Blogger. Title: 'التعليم العالي تخفض معدلات القبول للطلاب السوريين العائدين من الخارج (Higher education reduces admission rates for Syrian students returning from abroad)', Labels: ['دليلك في الأخبار', 'دليلك في سوريا'] (main.py:178)
+2025-09-24 21:52:40,962 - core.blogger_client - [INFO] - Creating post: 'التعليم العالي تخفض معدلات القبول للطلاب السوريين العائدين م...' (Draft: False) (blogger_client.py:116)
+2025-09-24 21:52:42,185 - core.blogger_client - [ERROR] - Failed to create post on Blogger: <HttpError 403 when requesting https://blogger.googleapis.com/v3/blogs/3714169846779613939/posts?isDraft=false&fetchImages=true&alt=json returned "You've reached the limit for creating posts within a specific timeframe. Please try again later.". Details: "[{'message': "You've reached the limit for creating posts within a specific timeframe. Please try again later.", 'domain': 'usageLimits', 'reason': 'quotaExceeded'}]"> (blogger_client.py:129)
+Traceback (most recent call last):
+  File "C:\Users\Khale\OneDrive\Desktop\projects\auto_online\core\blogger_client.py", line 124, in create_post
+    created_post = request.execute()
+  File "C:\Users\Khale\AppData\Local\Programs\Python\Python313\Lib\site-packages\googleapiclient\_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+  File "C:\Users\Khale\AppData\Local\Programs\Python\Python313\Lib\site-packages\googleapiclient\http.py", line 938, in execute
+    raise HttpError(resp, content, uri=self.uri)
+googleapiclient.errors.HttpError: <HttpError 403 when requesting https://blogger.googleapis.com/v3/blogs/3714169846779613939/posts?isDraft=false&fetchImages=true&alt=json returned "You've reached the limit for creating posts within a specific timeframe. Please try again later.". Details: "[{'message': "You've reached the limit for creating posts within a specific timeframe. Please try again later.", 'domain': 'usageLimits', 'reason': 'quotaExceeded'}]">
+2025-09-24 21:52:42,188 - core.blogger_client - [ERROR] - Blogger API error details: {
+  "error": {
+    "code": 403,
+    "message": "You've reached the limit for creating posts within a specific timeframe. Please try again later.",
+    "errors": [
+      {
+        "message": "You've reached the limit for creating posts within a specific timeframe. Please try again later.",
+        "domain": "usageLimits",
+        "reason": "quotaExceeded"
+      }
+    ]
+  }
+}
+ (blogger_client.py:133)
+2025-09-24 21:52:42,188 - BotRunner - [ERROR] - Failed to publish https://sana.sy/education/2292421/ to Blogger. (main.py:197)
+2025-09-24 21:52:42,189 - BotRunner - [INFO] - --- Processing Article (7/8): https://sana.sy/education/2292327/ --- (main.py:110)
+2025-09-24 21:52:42,189 - core.article_scraper - [INFO] - Scraping https://sana.sy/education/2292327/ (via cloudscraper) (article_scraper.py:138)
+2025-09-24 21:52:43,260 - core.article_scraper - [INFO] - SUCCESS: Found title for 'https://sana.sy/education/2292327/' using selector #2: 'h1'. (article_scraper.py:31)
+2025-09-24 21:52:43,339 - core.article_scraper - [INFO] - SUCCESS: Found content container for 'https://sana.sy/education/2292327/' using selector #5: 'div > div.s-ct > div.s-ct-wrap > div.s-ct-inner'. (article_scraper.py:31)
+2025-09-24 21:52:43,371 - core.article_scraper - [INFO] - Found OG image: https://cdn.sananews.sy/2025/09/888-4-2-1024x683.jpg (article_scraper.py:186)
+2025-09-24 21:52:44,074 - core.permalink_generator - [INFO] - Original: 'وزير التربية السوري يبحث مع نق...' -> Suggested Title: 'The Syrian Minister of Education discusses with th...', Slug base: 'the-syrian-minister-of-education-discusses-with-the-palestinian-teachers-sy' (permalink_generator.py:47)
+Defined crop area (0,0,0,0) is invalid for image 891x649. Skipping fixed crop.
+2025-09-24 21:52:45,848 - BotRunner - [INFO] - Main image hosted: http://i.ibb.co/tw1x3DJH/main-the-syrian-minister-of-educati-1758738532.jpg (main.py:133)
+Defined crop area (0,0,0,0) is invalid for image 2228x1622. Skipping fixed crop.
+Defined crop area (0,0,0,0) is invalid for image 261x190. Skipping fixed crop.
+2025-09-24 21:52:50,646 - core.content_formatter - [INFO] - HTML content formatted for Blogger. (content_formatter.py:185)
+2025-09-24 21:52:50,646 - BotRunner - [INFO] - Using custom labels provided by user: ['دليلك في الأخبار', 'دليلك في سوريا'] (main.py:167)
+2025-09-24 21:52:50,647 - BotRunner - [INFO] - Publishing to Blogger. Title: 'وزير التربية السوري يبحث مع نقيب معلمي فلسطين تعزيز التعاون المشترك (The Syrian Minister of Education discusses with the Palestinian Teachers Syndicate to enhance joint cooperation)', Labels: ['دليلك في الأخبار', 'دليلك في سوريا'] (main.py:178)
+2025-09-24 21:52:50,647 - core.blogger_client - [INFO] - Creating post: 'وزير التربية السوري يبحث مع نقيب معلمي فلسطين تعزيز التعاون ...' (Draft: False) (blogger_client.py:116)
+2025-09-24 21:52:51,605 - core.blogger_client - [ERROR] - Failed to create post on Blogger: <HttpError 403 when requesting https://blogger.googleapis.com/v3/blogs/3714169846779613939/posts?isDraft=false&fetchImages=true&alt=json returned "You've reached the limit for creating posts within a specific timeframe. Please try again later.". Details: "[{'message': "You've reached the limit for creating posts within a specific timeframe. Please try again later.", 'domain': 'usageLimits', 'reason': 'quotaExceeded'}]"> (blogger_client.py:129)
+Traceback (most recent call last):
+  File "C:\Users\Khale\OneDrive\Desktop\projects\auto_online\core\blogger_client.py", line 124, in create_post
+    created_post = request.execute()
+  File "C:\Users\Khale\AppData\Local\Programs\Python\Python313\Lib\site-packages\googleapiclient\_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+  File "C:\Users\Khale\AppData\Local\Programs\Python\Python313\Lib\site-packages\googleapiclient\http.py", line 938, in execute
+    raise HttpError(resp, content, uri=self.uri)
+googleapiclient.errors.HttpError: <HttpError 403 when requesting https://blogger.googleapis.com/v3/blogs/3714169846779613939/posts?isDraft=false&fetchImages=true&alt=json returned "You've reached the limit for creating posts within a specific timeframe. Please try again later.". Details: "[{'message': "You've reached the limit for creating posts within a specific timeframe. Please try again later.", 'domain': 'usageLimits', 'reason': 'quotaExceeded'}]">
+2025-09-24 21:52:51,608 - core.blogger_client - [ERROR] - Blogger API error details: {
+  "error": {
+    "code": 403,
+    "message": "You've reached the limit for creating posts within a specific timeframe. Please try again later.",
+    "errors": [
+      {
+        "message": "You've reached the limit for creating posts within a specific timeframe. Please try again later.",
+        "domain": "usageLimits",
+        "reason": "quotaExceeded"
+      }
+    ]
+  }
+}
+ (blogger_client.py:133)
+2025-09-24 21:52:51,609 - BotRunner - [ERROR] - Failed to publish https://sana.sy/education/2292327/ to Blogger. (main.py:197)
+2025-09-24 21:52:51,609 - BotRunner - [INFO] - --- Processing Article (8/8): https://sana.sy/miscellaneous/2292338/ --- (main.py:110)
+2025-09-24 21:52:51,609 - core.article_scraper - [INFO] - Scraping https://sana.sy/miscellaneous/2292338/ (via cloudscraper) (article_scraper.py:138)
+2025-09-24 21:52:52,849 - core.article_scraper - [INFO] - SUCCESS: Found title for 'https://sana.sy/miscellaneous/2292338/' using selector #2: 'h1'. (article_scraper.py:31)
+2025-09-24 21:52:52,922 - core.article_scraper - [INFO] - SUCCESS: Found content container for 'https://sana.sy/miscellaneous/2292338/' using selector #5: 'div > div.s-ct > div.s-ct-wrap > div.s-ct-inner'. (article_scraper.py:31)
+2025-09-24 21:52:52,970 - core.article_scraper - [INFO] - Found OG image: https://cdn.sananews.sy/2025/09/DSC_8574-1024x683.jpg (article_scraper.py:186)
+2025-09-24 21:52:53,858 - core.permalink_generator - [INFO] - Original: 'لغة الإشارة.. جسر إنساني يروي ...' -> Suggested Title: 'Sign language .. A human bridge narrates stories o...', Slug base: 'sign-language-a-human-bridge-narrates-stories-of-deaf-success-in-facing-cha' (permalink_generator.py:47)
+Defined crop area (0,0,0,0) is invalid for image 891x649. Skipping fixed crop.
+2025-09-24 21:52:56,009 - BotRunner - [INFO] - Main image hosted: http://i.ibb.co/HS41QKL/main-sign-language-a-human-bridge-n-1758738562.jpg (main.py:133)
+Defined crop area (0,0,0,0) is invalid for image 2228x1622. Skipping fixed crop.
+Defined crop area (0,0,0,0) is invalid for image 2228x1622. Skipping fixed crop.
+Defined crop area (0,0,0,0) is invalid for image 2228x1622. Skipping fixed crop.
+Defined crop area (0,0,0,0) is invalid for image 2228x1622. Skipping fixed crop.
+2025-09-24 21:53:07,258 - core.content_formatter - [INFO] - HTML content formatted for Blogger. (content_formatter.py:185)
+2025-09-24 21:53:07,258 - BotRunner - [INFO] - Using custom labels provided by user: ['دليلك في الأخبار', 'دليلك في سوريا'] (main.py:167)
+2025-09-24 21:53:07,259 - BotRunner - [INFO] - Publishing to Blogger. Title: 'لغة الإشارة.. جسر إنساني يروي قصص نجاح الصم في مواجهة التحديات (Sign language .. A human bridge narrates stories of deaf success in facing challenges)', Labels: ['دليلك في الأخبار', 'دليلك في سوريا'] (main.py:178)
+2025-09-24 21:53:07,259 - core.blogger_client - [INFO] - Creating post: 'لغة الإشارة.. جسر إنساني يروي قصص نجاح الصم في مواجهة التحدي...' (Draft: False) (blogger_client.py:116)
+2025-09-24 21:53:07,786 - core.blogger_client - [INFO] - Post created successfully: http://news.toiall.com/2025/09/sign-language-human-bridge-narrates_24.html (blogger_client.py:126)
+2025-09-24 21:53:07,786 - BotRunner - [INFO] - Successfully published 'https://sana.sy/miscellaneous/2292338/' to Blogger: http://news.toiall.com/2025/09/sign-language-human-bridge-narrates_24.html (main.py:189)
+2025-09-24 21:53:07,786 - BotRunner - [INFO] - Published 5 new articles in this cycle. (main.py:199)
+2025-09-24 21:53:07,787 - BotRunner - [INFO] - ===== BOT CYCLE FINISHED ===== (main.py:200)

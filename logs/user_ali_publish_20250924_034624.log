@@ -1,0 +1,121 @@
+--- بدء السجل في 2025-09-24 03:46:24 ---
+2025-09-24 03:46:29,863 - BotRunner - [INFO] - Config loaded from C:\Users\Khale\OneDrive\Desktop\projects\auto_online\bot_scripts\scraper\config.ini (main.py:46)
+2025-09-24 03:46:29,864 - BotRunner - [INFO] - ===== BOT CYCLE STARTED ===== (main.py:68)
+2025-09-24 03:46:29,864 - BotRunner - [WARNING] - File 'published_source_urls.txt' not found. A new one will be created. Starting with an empty set. (main.py:53)
+2025-09-24 03:46:29,864 - BotRunner - [INFO] - Loaded 0 previously published URLs. (main.py:70)
+2025-09-24 03:46:29,929 - core.article_scraper - [INFO] - ArticleScraper initialized with CloudScraper UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 (article_scraper.py:22)
+2025-09-24 03:46:29,930 - core.content_formatter - [INFO] - Attempting to load replacement dictionary from: C:\Users\Khale\OneDrive\Desktop\projects\auto_online\bot_scripts\scraper\replacements.json (content_formatter.py:31)
+2025-09-24 03:46:29,930 - core.content_formatter - [WARNING] - Repl. dict file 'C:\Users\Khale\OneDrive\Desktop\projects\auto_online\bot_scripts\scraper\replacements.json' not found. (content_formatter.py:33)
+2025-09-24 03:46:29,932 - core.permalink_generator - [INFO] - DeepL Translator (Google engine) initialized for permalink/title suggestion. (permalink_generator.py:18)
+2025-09-24 03:46:29,934 - core.blogger_client - [INFO] - Using BlogID: 3714169846779613939 for Blogger operations. (blogger_client.py:39)
+2025-09-24 03:46:29,939 - core.blogger_client - [INFO] - Credentials expired. Refreshing token... (blogger_client.py:58)
+2025-09-24 03:46:30,670 - core.blogger_client - [INFO] - Token refreshed successfully. (blogger_client.py:60)
+2025-09-24 03:46:30,671 - core.blogger_client - [INFO] - Credentials saved to google_credentials/account_1\token.json (blogger_client.py:83)
+2025-09-24 03:46:30,733 - core.blogger_client - [INFO] - Blogger service client initialized successfully. (blogger_client.py:93)
+2025-09-24 03:46:30,733 - BotRunner - [INFO] - Processing 1 specific URLs provided. (main.py:97)
+2025-09-24 03:46:30,733 - BotRunner - [INFO] - --- Processing Article (1/1): https://world.albalad-news.com/2025/09/15-2025-dubais-private-aviation.html --- (main.py:129)
+2025-09-24 03:46:30,733 - core.article_scraper - [INFO] - Scraping https://world.albalad-news.com/2025/09/15-2025-dubais-private-aviation.html (via cloudscraper) (article_scraper.py:138)
+2025-09-24 03:46:32,257 - core.article_scraper - [INFO] - SUCCESS: Found title for 'https://world.albalad-news.com/2025/09/15-2025-dubais-private-aviation.html' using selector #2: 'h1'. (article_scraper.py:31)
+2025-09-24 03:46:32,288 - core.article_scraper - [WARNING] - FAILURE: Could not find content container for 'https://world.albalad-news.com/2025/09/15-2025-dubais-private-aviation.html' using: ['body > div.all > div > div.container > div.featured > div.news_preview', 'div.description_holder', 'body > main > div > div.row > div.col-lg-8 > article > div.article-content', '#penci-post-entry-inner', 'div > div.s-ct > div.s-ct-wrap > div.s-ct-inner'] (article_scraper.py:34)
+2025-09-24 03:46:32,291 - core.article_scraper - [INFO] - Found OG image: https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_s_tGRWnrZDcPGfh1UcAjvRVY8_LEoRk1zW3O2dwQPZN4N2tJf1xslvC0LU20fb26GXRSOnKOLLAn-CtDLYCDwC1cONcFfawUVaJJFRVTfFqNKEXe_9AnJJOu1ALP_wQ616m8ijWqwErSIXs06y5A=w1200-h630-p-k-no-nu (article_scraper.py:186)
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\Khale\AppData\Local\Programs\Python\Python313\Lib\logging\__init__.py", line 1153, in emit
+    stream.write(msg + self.terminator)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Khale\AppData\Local\Programs\Python\Python313\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 73-76: character maps to <undefined>
+Call stack:
+  File "C:\Users\Khale\OneDrive\Desktop\projects\auto_online\bot_scripts\scraper\main.py", line 215, in <module>
+    run_bot_cycle(creds_path=args.creds_path, article_urls_to_process=args.urls)
+  File "C:\Users\Khale\OneDrive\Desktop\projects\auto_online\bot_scripts\scraper\main.py", line 146, in run_bot_cycle
+    title_sugg_dict = permalink_suggester.generate_english_title_suggestion(orig_title, source_lang_hint=config.get('Keywords','Language',fallback='ar'))
+  File "C:\Users\Khale\OneDrive\Desktop\projects\auto_online\core\permalink_generator.py", line 47, in generate_english_title_suggestion
+    logger.info(f"Original: '{original_title[:30]}...' -> Suggested Title: '{english_suggested_title[:50]}...', Slug base: '{slug_base}'")
+Message: "Original: '\u062d\u0631\u0643\u0629 \u0627\u0644\u0637\u064a\u0631\u0627\u0646 \u0627\u0644\u062e\u0627\u0635 \u0641\u064a \u062f\u0628\u064a.. \u0646\u0645...' -> Suggested Title: 'Dubai's private aviation movement .. growth of 15%...', Slug base: 'dubais-private-aviation-movement-growth-of-15-during-the-first-half-of-2025'"
+Arguments: ()
+Defined crop area (0,0,0,0) is invalid for image 609x380. Skipping fixed crop.
+2025-09-24 03:46:36,806 - BotRunner - [INFO] - Main image hosted: http://i.ibb.co/YBMw0ND9/main-dubais-private-aviation-moveme-1758674795.jpg (main.py:156)
+2025-09-24 03:46:36,809 - core.content_formatter - [INFO] - HTML content formatted for Blogger. (content_formatter.py:185)
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\Khale\AppData\Local\Programs\Python\Python313\Lib\logging\__init__.py", line 1153, in emit
+    stream.write(msg + self.terminator)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Khale\AppData\Local\Programs\Python\Python313\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 127-130: character maps to <undefined>
+Call stack:
+  File "C:\Users\Khale\OneDrive\Desktop\projects\auto_online\bot_scripts\scraper\main.py", line 215, in <module>
+    run_bot_cycle(creds_path=args.creds_path, article_urls_to_process=args.urls)
+  File "C:\Users\Khale\OneDrive\Desktop\projects\auto_online\bot_scripts\scraper\main.py", line 182, in run_bot_cycle
+    labels = keyword_tool.extract_keywords(kw_txt)
+  File "C:\Users\Khale\OneDrive\Desktop\projects\auto_online\core\keyword_extractor.py", line 42, in extract_keywords
+    logger.info(f"Extracting keywords (lang: {lang_to_use}, target: {self.num_keywords}). Snippet: '{text_content[:100].replace(chr(10),' ')}...'")
+Message: "Extracting keywords (lang: ar, target: 0). Snippet: '[Content for '\u062d\u0631\u0643\u0629 \u0627\u0644\u0637\u064a\u0631\u0627\u0646 \u0627\u0644\u062e\u0627\u0635 \u0641\u064a \u062f\u0628\u064a.. \u0646\u0645\u0648 \u0628\u0646\u0633\u0628\u0629 15% \u062e\u0644\u0627\u0644 \u0627\u0644\u0646\u0635\u0641 \u0627\u0644\u0623\u0648\u0644 \u0645\u0646 2025' could not be extra...'"
+Arguments: ()
+2025-09-24 03:46:36,840 - core.keyword_extractor - [ERROR] - NLTK LookupError for word_tokenize ('ar'): 
+**********************************************************************
+  Resource [93mpunkt_tab[0m not found.
+  Please use the NLTK Downloader to obtain the resource:
+
+  [31m>>> import nltk
+  >>> nltk.download('punkt_tab')
+  [0m
+  For more information see: https://www.nltk.org/data.html
+
+  Attempted to load [93mtokenizers/punkt_tab/arabic/[0m
+
+  Searched in:
+    - 'C:\\Users\\Khale/nltk_data'
+    - 'C:\\Users\\Khale\\AppData\\Local\\Programs\\Python\\Python313\\nltk_data'
+    - 'C:\\Users\\Khale\\AppData\\Local\\Programs\\Python\\Python313\\share\\nltk_data'
+    - 'C:\\Users\\Khale\\AppData\\Local\\Programs\\Python\\Python313\\lib\\nltk_data'
+    - 'C:\\Users\\Khale\\AppData\\Roaming\\nltk_data'
+    - 'C:\\nltk_data'
+    - 'D:\\nltk_data'
+    - 'E:\\nltk_data'
+**********************************************************************
+. Fallback tokenization. (keyword_extractor.py:51)
+2025-09-24 03:46:36,870 - core.keyword_extractor - [INFO] - Keywords extracted (ar): [] (keyword_extractor.py:60)
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\Khale\AppData\Local\Programs\Python\Python313\Lib\logging\__init__.py", line 1153, in emit
+    stream.write(msg + self.terminator)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Khale\AppData\Local\Programs\Python\Python313\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 78-81: character maps to <undefined>
+Call stack:
+  File "C:\Users\Khale\OneDrive\Desktop\projects\auto_online\bot_scripts\scraper\main.py", line 215, in <module>
+    run_bot_cycle(creds_path=args.creds_path, article_urls_to_process=args.urls)
+  File "C:\Users\Khale\OneDrive\Desktop\projects\auto_online\bot_scripts\scraper\main.py", line 187, in run_bot_cycle
+    main_logger.info(f"Publishing to Blogger. Title: '{final_title}'")
+Message: "Publishing to Blogger. Title: '\u062d\u0631\u0643\u0629 \u0627\u0644\u0637\u064a\u0631\u0627\u0646 \u0627\u0644\u062e\u0627\u0635 \u0641\u064a \u062f\u0628\u064a.. \u0646\u0645\u0648 \u0628\u0646\u0633\u0628\u0629 15% \u062e\u0644\u0627\u0644 \u0627\u0644\u0646\u0635\u0641 \u0627\u0644\u0623\u0648\u0644 \u0645\u0646 2025 (Dubai's private aviation movement .. growth of 15% during the first half of 2025)'"
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\Khale\AppData\Local\Programs\Python\Python313\Lib\logging\__init__.py", line 1153, in emit
+    stream.write(msg + self.terminator)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Khale\AppData\Local\Programs\Python\Python313\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 73-76: character maps to <undefined>
+Call stack:
+  File "C:\Users\Khale\OneDrive\Desktop\projects\auto_online\bot_scripts\scraper\main.py", line 215, in <module>
+    run_bot_cycle(creds_path=args.creds_path, article_urls_to_process=args.urls)
+  File "C:\Users\Khale\OneDrive\Desktop\projects\auto_online\bot_scripts\scraper\main.py", line 189, in run_bot_cycle
+    pub_url = blogger_bot_client.create_post(title=final_title,content_html=final_html,labels=final_lbls,is_draft=is_drft)
+  File "C:\Users\Khale\OneDrive\Desktop\projects\auto_online\core\blogger_client.py", line 116, in create_post
+    logger.info(f"Creating post: '{title[:60]}...' (Draft: {is_draft})")
+Message: "Creating post: '\u062d\u0631\u0643\u0629 \u0627\u0644\u0637\u064a\u0631\u0627\u0646 \u0627\u0644\u062e\u0627\u0635 \u0641\u064a \u062f\u0628\u064a.. \u0646\u0645\u0648 \u0628\u0646\u0633\u0628\u0629 15% \u062e\u0644\u0627\u0644 \u0627\u0644\u0646\u0635\u0641 \u0627\u0644\u0623\u0648\u0644 \u0645...' (Draft: False)"
+Arguments: ()
+2025-09-24 03:46:39,053 - core.blogger_client - [INFO] - Post created successfully: http://news.toiall.com/2025/09/15-2025-dubais-private-aviation.html (blogger_client.py:126)
+2025-09-24 03:46:39,053 - BotRunner - [INFO] - Successfully published 'https://world.albalad-news.com/2025/09/15-2025-dubais-private-aviation.html' to Blogger: http://news.toiall.com/2025/09/15-2025-dubais-private-aviation.html (main.py:192)
+2025-09-24 03:46:39,054 - BotRunner - [INFO] - Published 1 new articles in this cycle. (main.py:202)
+2025-09-24 03:46:39,054 - BotRunner - [INFO] - ===== BOT CYCLE FINISHED ===== (main.py:203)

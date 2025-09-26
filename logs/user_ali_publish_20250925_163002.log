@@ -1,0 +1,53 @@
+--- بدء السجل في 2025-09-25 16:30:02 ---
+2025-09-25 16:30:09,443 - BotRunner - [INFO] - Config loaded from C:\Users\Khale\OneDrive\Desktop\projects\auto_online\bot_scripts\scraper\config.ini (main.py:41)
+2025-09-25 16:30:09,444 - BotRunner - [INFO] - ===== BOT CYCLE STARTED ===== (main.py:64)
+2025-09-25 16:30:09,445 - BotRunner - [WARNING] - File 'published_source_urls.txt' not found. A new one will be created. (main.py:48)
+2025-09-25 16:30:09,446 - BotRunner - [INFO] - Loaded 0 previously published URLs. (main.py:66)
+2025-09-25 16:30:09,463 - BotRunner - [INFO] - Successfully loaded publishing rules from C:\Users\Khale\AppData\Local\Temp\tmpw453x9uf.json (main.py:74)
+2025-09-25 16:30:09,546 - core.article_scraper - [INFO] - ArticleScraper initialized with CloudScraper UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 (article_scraper.py:22)
+2025-09-25 16:30:09,548 - core.permalink_generator - [INFO] - DeepL Translator (Google engine) initialized for permalink/title suggestion. (permalink_generator.py:18)
+2025-09-25 16:30:09,549 - core.blogger_client - [INFO] - Using BlogID: 3714169846779613939 for Blogger operations. (blogger_client.py:39)
+2025-09-25 16:30:09,611 - core.blogger_client - [INFO] - Blogger service client initialized successfully. (blogger_client.py:93)
+2025-09-25 16:30:09,612 - BotRunner - [INFO] - Processing 1 specific URLs provided. (main.py:99)
+2025-09-25 16:30:09,612 - BotRunner - [INFO] - --- Processing Article (1/1): https://sana.sy/economy/2292522/ --- (main.py:120)
+2025-09-25 16:30:09,612 - core.article_scraper - [INFO] - Scraping https://sana.sy/economy/2292522/ (via cloudscraper) (article_scraper.py:138)
+2025-09-25 16:30:12,443 - core.article_scraper - [INFO] - SUCCESS: Found title for 'https://sana.sy/economy/2292522/' using selector #2: 'h1'. (article_scraper.py:31)
+2025-09-25 16:30:12,499 - core.article_scraper - [INFO] - SUCCESS: Found content container for 'https://sana.sy/economy/2292522/' using selector #5: 'div > div.s-ct > div.s-ct-wrap > div.s-ct-inner'. (article_scraper.py:31)
+2025-09-25 16:30:12,531 - core.article_scraper - [INFO] - Found OG image: https://cdn.sananews.sy/2025/09/DSC00304-1024x683.jpg (article_scraper.py:186)
+2025-09-25 16:30:14,493 - core.permalink_generator - [INFO] - Original: 'هيئة دعم وتنمية الإنتاج المحلي...' -> Suggested Title: 'The Support and Development of Local Production an...', Slug base: 'the-support-and-development-of-local-production-and-export-development-sust' (permalink_generator.py:47)
+Defined crop area (0,0,0,0) is invalid for image 891x649. Skipping fixed crop.
+2025-09-25 16:30:21,661 - BotRunner - [INFO] - Main image hosted: http://i.ibb.co/Xkb5z17m/main-the-support-and-development-of-1758807018.jpg (main.py:139)
+2025-09-25 16:30:21,665 - core.content_formatter - [INFO] - Applying 1 dynamic replacement rules. (content_formatter.py:73)
+2025-09-25 16:30:21,669 - core.content_formatter - [INFO] - HTML content formatted for Blogger. (content_formatter.py:94)
+2025-09-25 16:30:21,671 - BotRunner - [INFO] - No custom labels provided, extracting automatically... (main.py:175)
+2025-09-25 16:30:21,676 - core.keyword_extractor - [INFO] - Extracting keywords (lang: ar, target: 0). Snippet: 'دمشق-سانا أكد مدير هيئة دعم وتنمية الإنتاج المحلي والصادرات، فراس الغفير، أن الهيئة تضع في مقدمة أول...' (keyword_extractor.py:42)
+2025-09-25 16:30:21,703 - core.keyword_extractor - [ERROR] - NLTK LookupError for word_tokenize ('ar'): 
+**********************************************************************
+  Resource [93mpunkt_tab[0m not found.
+  Please use the NLTK Downloader to obtain the resource:
+
+  [31m>>> import nltk
+  >>> nltk.download('punkt_tab')
+  [0m
+  For more information see: https://www.nltk.org/data.html
+
+  Attempted to load [93mtokenizers/punkt_tab/arabic/[0m
+
+  Searched in:
+    - 'C:\\Users\\Khale/nltk_data'
+    - 'C:\\Users\\Khale\\AppData\\Local\\Programs\\Python\\Python313\\nltk_data'
+    - 'C:\\Users\\Khale\\AppData\\Local\\Programs\\Python\\Python313\\share\\nltk_data'
+    - 'C:\\Users\\Khale\\AppData\\Local\\Programs\\Python\\Python313\\lib\\nltk_data'
+    - 'C:\\Users\\Khale\\AppData\\Roaming\\nltk_data'
+    - 'C:\\nltk_data'
+    - 'D:\\nltk_data'
+    - 'E:\\nltk_data'
+**********************************************************************
+. Fallback tokenization. (keyword_extractor.py:51)
+2025-09-25 16:30:21,730 - core.keyword_extractor - [INFO] - Keywords extracted (ar): [] (keyword_extractor.py:60)
+2025-09-25 16:30:21,730 - BotRunner - [INFO] - Publishing to Blogger. Title: 'هيئة دعم وتنمية الإنتاج المحلي والصادرات: برامج مستدامة للصادرات السورية (The Support and Development of Local Production and Export Development: Sustainable programs for Syrian exports)', Labels: ['دليلك في الأخبار', 'دليلك في سوريا'] (main.py:183)
+2025-09-25 16:30:21,730 - core.blogger_client - [INFO] - Creating post: 'هيئة دعم وتنمية الإنتاج المحلي والصادرات: برامج مستدامة للصا...' (Draft: False) (blogger_client.py:116)
+2025-09-25 16:30:25,894 - core.blogger_client - [INFO] - Post created successfully: http://news.toiall.com/2025/09/support-and-development-of-local_25.html (blogger_client.py:126)
+2025-09-25 16:30:25,894 - BotRunner - [INFO] - Successfully published 'https://sana.sy/economy/2292522/' to Blogger: http://news.toiall.com/2025/09/support-and-development-of-local_25.html (main.py:191)
+2025-09-25 16:30:25,895 - BotRunner - [INFO] - Published 1 new articles in this cycle. (main.py:200)
+2025-09-25 16:30:25,895 - BotRunner - [INFO] - ===== BOT CYCLE FINISHED ===== (main.py:201)
