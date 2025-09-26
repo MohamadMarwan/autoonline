@@ -12,4 +12,5 @@ tqdm
 cloudscraper
 numpy
 nltk
-unidecode  # <-- المكتبة الجديدة
+unidecode
+deep-translator
