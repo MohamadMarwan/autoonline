@@ -7,6 +7,8 @@ import os
 import tempfile
 import asyncio
 from datetime import datetime
+import sys
+
 # استيراد السكربتات المساعدة
 from bot_scripts.extractor import links_extractor
 from bot_scripts.creator import image_creator
