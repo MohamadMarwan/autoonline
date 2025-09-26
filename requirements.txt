@@ -1,5 +1,15 @@
 streamlit
+requests
 beautifulsoup4
 google-api-python-client
-google-auth-httplib2
 google-auth-oauthlib
+python-telegram-bot
+Pillow>=9.0.0
+arabic_reshaper
+python-bidi
+toml
+tqdm  # <-- ✅ تأكد من وجود هذا السطر
+# أضف أي مكتبات أخرى قد تكون نسيتها، مثل:
+# cloudscraper
+# numpy
+# nltk
