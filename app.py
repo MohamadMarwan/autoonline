@@ -7,11 +7,12 @@ import os
 import tempfile
 import asyncio
 from datetime import datetime
+import sys # <-- استيراد مكتبة sys للوصول إلى مسار بايثون
+import toml # <-- استيراد toml للقراءة المحلية
 
 # استيراد السكربتات المساعدة
 from bot_scripts.extractor import links_extractor
 from bot_scripts.creator import image_creator
-import toml
 
 # --- الإعدادات الأساسية ---
 LOG_DIR = 'logs'
@@ -19,6 +20,10 @@ IS_CLOUD_ENVIRONMENT = hasattr(st, 'secrets')
 
 # --- دوال مساعدة لإدارة الإعدادات والسجلات ---
 def load_config():
+    """
+    تحميل الإعدادات من Streamlit Secrets (في السحابة) 
+    أو من ملف .streamlit/secrets.toml (محليًا).
+    """
     if IS_CLOUD_ENVIRONMENT:
         try:
             return st.secrets["app_config"].to_dict()
@@ -29,12 +34,10 @@ def load_config():
         secrets_path = os.path.join(".streamlit", "secrets.toml")
         try:
             if not os.path.exists(secrets_path):
-                if os.path.exists('app_config.json'):
-                    with open('app_config.json', 'r', encoding='utf-8') as f:
-                        return json.load(f)
+                if os.path.exists('app_config.json'): # كحل بديل مؤقت
+                    with open('app_config.json', 'r', encoding='utf-8') as f: return json.load(f)
                 st.error(f"ملف الإعدادات '{secrets_path}' غير موجود.")
                 return None
-            
             parsed_toml = toml.load(secrets_path)
             return parsed_toml.get("app_config", {})
         except Exception as e:
@@ -42,38 +45,44 @@ def load_config():
             return None
 
 def save_config(config_data):
+    """
+    حفظ الإعدادات في secrets.toml عند التشغيل المحلي.
+    """
     if IS_CLOUD_ENVIRONMENT:
         st.warning("لا يمكن حفظ التغييرات تلقائيًا في بيئة النشر السحابية."); return False
-    
     secrets_path = os.path.join(".streamlit", "secrets.toml")
     try:
         full_config = toml.load(secrets_path)
-        # دمج التغييرات بدلاً من الكتابة فوق كل شيء
-        if 'app_config' not in full_config:
-            full_config['app_config'] = {}
+        if 'app_config' not in full_config: full_config['app_config'] = {}
         full_config['app_config'].update(config_data)
-        
         with open(secrets_path, 'w', encoding='utf-8') as f:
             toml.dump(full_config, f)
         st.success("تم حفظ التغييرات بنجاح في secrets.toml!"); return True
     except Exception as e:
         st.error(f"فشل حفظ الإعدادات في secrets.toml: {e}"); return False
 
-def run_script_and_show_output(command, username, task_name):
+def run_script_and_show_output(command_script_part, username, task_name):
+    """
+    تشغيل السكربتات باستخدام نفس بيئة بايثون التي يعمل بها Streamlit.
+    """
     os.makedirs(LOG_DIR, exist_ok=True); timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     log_filename = os.path.join(LOG_DIR, f"{username}_{task_name}_{timestamp}.log")
     log_placeholder = st.empty(); log_output = f"--- بدء السجل في {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} ---\n"
     log_placeholder.code(log_output, language='bash')
     try:
         with open(log_filename, 'w', encoding='utf-8') as log_file:
-            log_file.write(log_output); args = shlex.split(command); my_env = os.environ.copy()
+            log_file.write(log_output)
+            python_executable = sys.executable
+            full_command = f'"{python_executable}" {command_script_part}'
+            args = shlex.split(full_command)
+            my_env = os.environ.copy()
             my_env['PYTHONIOENCODING'] = 'utf-8'
             process = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding='utf-8', env=my_env)
             for line in iter(process.stdout.readline, ''):
                 log_output += line; log_file.write(line); log_placeholder.code(log_output, language='bash')
             process.wait(); return process.returncode
     except Exception as e:
-        error_message = f"\n!!! خطأ فادح: {e} !!!\n"; st.error(error_message)
+        error_message = f"\n!!! خطأ فادح أثناء تشغيل السكربت: {e} !!!\n"; st.error(error_message)
         with open(log_filename, 'a', encoding='utf-8') as log_file: log_file.write(error_message)
         return 1
 
@@ -96,7 +105,6 @@ def admin_dashboard():
     st.title("👑 لوحة تحكم المشرف")
     config = load_config()
     if not config: return
-    
     st.subheader("👥 إدارة أداء المستخدمين")
     users_data = config.get('users', {})
     for username, data in users_data.items():
@@ -111,7 +119,6 @@ def admin_dashboard():
                 users_data[username]['rating'] = new_rating
                 if save_config({'users': users_data}):
                     st.success(f"تم تحديث بيانات {username} بنجاح!"); time.sleep(1); st.rerun()
-
     st.markdown("---")
     st.subheader("🛠️ إدارة الحسابات")
     with st.expander("إضافة أو حذف مستخدم"):
@@ -197,8 +204,8 @@ def user_dashboard():
                 user_pub_rules_dict = json.loads(json.dumps(user_pub_rules_raw))
                 with tempfile.NamedTemporaryFile(mode='w', delete=False, suffix='.json', encoding='utf-8') as tmp:
                     json.dump(user_pub_rules_dict, tmp, ensure_ascii=False); rules_file_path = tmp.name
-                command = (f"python bot_scripts/scraper/main.py --creds-path {credential_path} --urls {' '.join(shlex.quote(u) for u in urls)} {labels_command_part} --rules-file \"{rules_file_path}\"")
-                return_code = run_script_and_show_output(command, username, "publish")
+                command_script_part = (f"bot_scripts/scraper/main.py --creds-path {credential_path} --urls {' '.join(shlex.quote(u) for u in urls)} {labels_command_part} --rules-file \"{rules_file_path}\"")
+                return_code = run_script_and_show_output(command_script_part, username, "publish")
                 os.remove(rules_file_path)
                 if return_code == 0:
                     st.success("🎉 انتهت عملية النشر بنجاح!")
@@ -249,8 +256,8 @@ def user_dashboard():
             user_rules_raw = user_data.get('cleaning_rules', {}); user_rules_dict = json.loads(json.dumps(user_rules_raw))
             with tempfile.NamedTemporaryFile(mode='w', delete=False, suffix='.json', encoding='utf-8') as tmp:
                 json.dump(user_rules_dict, tmp, ensure_ascii=False); rules_file_path = tmp.name
-            command = (f'python bot_scripts/cleaner/clean_posts.py --blog-id "{selected_blog_id}" --creds-path "{credential_path}" --limit {post_limit} --rules-file "{rules_file_path}"')
-            return_code = run_script_and_show_output(command, username, "clean")
+            command_script_part = (f'bot_scripts/cleaner/clean_posts.py --blog-id "{selected_blog_id}" --creds-path "{credential_path}" --limit {post_limit} --rules-file "{rules_file_path}"')
+            return_code = run_script_and_show_output(command_script_part, username, "clean")
             os.remove(rules_file_path)
             if return_code == 0: st.success("🎉 انتهت عملية التنظيف بنجاح!")
             else: st.error("حدث خطأ أثناء التنظيف.")
