@@ -7,7 +7,7 @@ import os
 import tempfile
 import asyncio
 from datetime import datetime
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup4
 import sys
 
 # استيراد السكربتات المساعدة
