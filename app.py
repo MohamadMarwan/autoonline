@@ -7,8 +7,8 @@ import os
 import tempfile
 import asyncio
 from datetime import datetime
-import sys # <-- استيراد مكتبة sys للوصول إلى مسار بايثون
-import toml # <-- استيراد toml للقراءة المحلية
+import sys
+import toml
 
 # استيراد السكربتات المساعدة
 from bot_scripts.extractor import links_extractor
@@ -20,27 +20,24 @@ IS_CLOUD_ENVIRONMENT = hasattr(st, 'secrets')
 
 # --- دوال مساعدة لإدارة الإعدادات والسجلات ---
 def load_config():
+    # (هذه الدالة تبقى كما هي)
     if IS_CLOUD_ENVIRONMENT:
-        try:
-            return st.secrets["app_config"].to_dict()
-        except KeyError:
-            st.error("خطأ فادح: قسم [app_config] غير موجود في Streamlit Secrets.")
-            return None
+        try: return st.secrets["app_config"].to_dict()
+        except KeyError: st.error("خطأ فادح: قسم [app_config] غير موجود في Streamlit Secrets."); return None
     else:
         secrets_path = os.path.join(".streamlit", "secrets.toml")
         try:
             if not os.path.exists(secrets_path):
-                if os.path.exists('app_config.json'): # كحل بديل مؤقت
+                if os.path.exists('app_config.json'):
                     with open('app_config.json', 'r', encoding='utf-8') as f: return json.load(f)
-                st.error(f"ملف الإعدادات '{secrets_path}' غير موجود.")
-                return None
+                st.error(f"ملف الإعدادات '{secrets_path}' غير موجود."); return None
             parsed_toml = toml.load(secrets_path)
             return parsed_toml.get("app_config", {})
         except Exception as e:
-            st.error(f"خطأ في قراءة ملف الإعدادات المحلي: {e}")
-            return None
+            st.error(f"خطأ في قراءة ملف الإعدادات المحلي: {e}"); return None
 
 def save_config(config_data):
+    # (هذه الدالة تبقى كما هي)
     if IS_CLOUD_ENVIRONMENT:
         st.warning("لا يمكن حفظ التغييرات تلقائيًا في بيئة النشر السحابية."); return False
     secrets_path = os.path.join(".streamlit", "secrets.toml")
@@ -54,22 +51,45 @@ def save_config(config_data):
     except Exception as e:
         st.error(f"فشل حفظ الإعدادات في secrets.toml: {e}"); return False
 
-# ✅ --- تم إصلاح هذه الدالة بالكامل ---
+# ✅ --- تم تعديل هذه الدالة بالكامل ---
 def run_script_and_show_output(command_script_part, username, task_name, user_data):
+    """
+    يقوم بإنشاء ملفات المصادقة من Secrets قبل تشغيل السكربت.
+    """
     credential_path = user_data.get('credential_path')
+    
+    # --- ✅ هذا هو الجزء الحاسم الذي يحل المشكلة ---
+    # هذه الخطوة تعمل فقط في بيئة السحابة وهي ضرورية جدًا
     if IS_CLOUD_ENVIRONMENT and credential_path:
+        st.info("... تهيئة بيئة المصادقة الآمنة ...")
         try:
+            # استخراج اسم حساب الاعتماد (e.g., "account_1")
             account_key = os.path.basename(credential_path)
+            
+            # قراءة محتوى الملفات من st.secrets
             token_content = st.secrets.google_creds[f"{account_key}_token"]
             secret_content = st.secrets.google_creds[f"{account_key}_secret"]
+            
+            # إنشاء المجلدات إذا لم تكن موجودة
+            # هذا مهم لأن Git لا يرفع المجلدات الفارغة
             os.makedirs(credential_path, exist_ok=True)
-            with open(os.path.join(credential_path, 'token.json'), 'w') as f: f.write(token_content)
-            with open(os.path.join(credential_path, 'client_secret.json'), 'w') as f: f.write(secret_content)
+            
+            # كتابة المحتوى إلى ملفات مؤقتة في المسار الذي يتوقعه السكربت
+            with open(os.path.join(credential_path, 'token.json'), 'w') as f:
+                f.write(token_content)
+            with open(os.path.join(credential_path, 'client_secret.json'), 'w') as f:
+                f.write(secret_content)
+            
+            st.info("... المصادقة جاهزة ...")
         except KeyError as e:
-            st.error(f"خطأ فادح: المفتاح {e} غير موجود في قسم [google_creds] في Streamlit Secrets."); return 1
+            st.error(f"خطأ فادح: المفتاح {e} غير موجود في قسم [google_creds] في Streamlit Secrets. تأكد من أن الأسماء متطابقة.")
+            return 1 # إرجاع كود خطأ
         except Exception as e:
-            st.error(f"خطأ غير متوقع أثناء تهيئة المصادقة: {e}"); return 1
-
+            st.error(f"خطأ غير متوقع أثناء تهيئة المصادقة: {e}")
+            return 1
+    # --- نهاية الجزء الحاسم ---
+            
+    # بقية الدالة تبقى كما هي
     os.makedirs(LOG_DIR, exist_ok=True); timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     log_filename = os.path.join(LOG_DIR, f"{username}_{task_name}_{timestamp}.log")
     log_placeholder = st.empty(); log_output = f"--- بدء السجل في {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} ---\n"
@@ -90,7 +110,7 @@ def run_script_and_show_output(command_script_part, username, task_name, user_da
         error_message = f"\n!!! خطأ فادح أثناء تشغيل السكربت: {e} !!!\n"; st.error(error_message)
         with open(log_filename, 'a', encoding='utf-8') as log_file: log_file.write(error_message)
         return 1
-
+    
 # --- صفحات الواجهة ---
 def login_page():
     st.header("🔑 تسجيل الدخول إلى لوحة التحكم")
