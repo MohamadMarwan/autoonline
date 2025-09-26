@@ -1,15 +1,14 @@
-BeautifulSoup4
 streamlit
 requests
+beautifulsoup4
 google-api-python-client
 google-auth-oauthlib
 python-telegram-bot
-Pillow>=9.0.0
+Pillow
 arabic_reshaper
 python-bidi
 toml
-tqdm  # <-- ✅ تأكد من وجود هذا السطر
-# أضف أي مكتبات أخرى قد تكون نسيتها، مثل:
+tqdm
 cloudscraper
 numpy
-
+nltk
