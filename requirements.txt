@@ -1,3 +1,4 @@
+beautifulsoup4
 streamlit
 requests
 beautifulsoup4
@@ -10,6 +11,6 @@ python-bidi
 toml
 tqdm  # <-- ✅ تأكد من وجود هذا السطر
 # أضف أي مكتبات أخرى قد تكون نسيتها، مثل:
-# cloudscraper
-# numpy
-# nltk
+cloudscraper
+numpy
+nltk
