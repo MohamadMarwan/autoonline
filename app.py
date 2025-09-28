@@ -1,5 +1,3 @@
-# app.py
-
 import streamlit as st
 import json
 import subprocess
@@ -9,15 +7,12 @@ import os
 import tempfile
 import asyncio
 from datetime import datetime
-import sys
-import toml
-from queue import Queue
-from threading import Thread
+import sys # <-- استيراد مكتبة sys للوصول إلى مسار بايثون
+import toml # <-- استيراد toml للقراءة المحلية
 
-# استيراد جميع السكربتات المساعدة المطلوبة
+# استيراد السكربتات المساعدة
 from bot_scripts.extractor import links_extractor
 from bot_scripts.creator import image_creator
-from bot_scripts.video import video_creator # <-- تم التأكد من وجوده
 
 # --- الإعدادات الأساسية ---
 LOG_DIR = 'logs'
@@ -27,65 +22,66 @@ IS_CLOUD_ENVIRONMENT = hasattr(st, 'secrets')
 def load_config():
     if IS_CLOUD_ENVIRONMENT:
         try:
-            # في بيئة النشر، يتم قراءة الإعدادات من st.secrets كقاموس كامل
-            return st.secrets
-        except Exception as e:
-            st.error(f"خطأ فادح في قراءة Streamlit Secrets: {e}")
+            return st.secrets["app_config"].to_dict()
+        except KeyError:
+            st.error("خطأ فادح: قسم [app_config] غير موجود في Streamlit Secrets.")
             return None
     else:
-        # في البيئة المحلية، يتم قراءة الإعدادات من ملف secrets.toml
         secrets_path = os.path.join(".streamlit", "secrets.toml")
         try:
             if not os.path.exists(secrets_path):
-                st.error(f"ملف الإعدادات المحلي '{secrets_path}' غير موجود.")
+                if os.path.exists('app_config.json'): # كحل بديل مؤقت
+                    with open('app_config.json', 'r', encoding='utf-8') as f: return json.load(f)
+                st.error(f"ملف الإعدادات '{secrets_path}' غير موجود.")
                 return None
-            return toml.load(secrets_path)
+            parsed_toml = toml.load(secrets_path)
+            return parsed_toml.get("app_config", {})
         except Exception as e:
             st.error(f"خطأ في قراءة ملف الإعدادات المحلي: {e}")
             return None
 
 def save_config(config_data):
     if IS_CLOUD_ENVIRONMENT:
-        st.warning("لا يمكن حفظ التغييرات تلقائيًا في بيئة النشر السحابية.")
-        return False
+        st.warning("لا يمكن حفظ التغييرات تلقائيًا في بيئة النشر السحابية."); return False
     secrets_path = os.path.join(".streamlit", "secrets.toml")
     try:
-        # عند الحفظ، نقوم بكتابة القاموس الكامل
+        full_config = toml.load(secrets_path)
+        if 'app_config' not in full_config: full_config['app_config'] = {}
+        full_config['app_config'].update(config_data)
         with open(secrets_path, 'w', encoding='utf-8') as f:
-            toml.dump(config_data, f)
-        st.success("تم حفظ التغييرات بنجاح في secrets.toml!")
-        return True
+            toml.dump(full_config, f)
+        st.success("تم حفظ التغييرات بنجاح في secrets.toml!"); return True
     except Exception as e:
-        st.error(f"فشل حفظ الإعدادات في secrets.toml: {e}")
-        return False
+        st.error(f"فشل حفظ الإعدادات في secrets.toml: {e}"); return False
 
+# ✅ --- هذا هو الإصدار الكامل والصحيح لهذه الدالة ---
 def run_script_and_show_output(command_script_part, username, task_name, user_data):
+    """
+    يقوم بإنشاء ملفات المصادقة من Secrets قبل تشغيل السكربت.
+    """
     credential_path = user_data.get('credential_path')
+    
+    # --- ✅ هذا هو الجزء الحاسم الذي يحل المشكلة ---
     if IS_CLOUD_ENVIRONMENT and credential_path:
         st.info("... تهيئة بيئة المصادقة الآمنة ...")
         try:
             account_key = os.path.basename(credential_path)
-            if 'google_creds' not in st.secrets:
-                st.error("قسم [google_creds] غير موجود في Streamlit Secrets.")
-                return 1
             token_content = st.secrets.google_creds[f"{account_key}_token"]
             secret_content = st.secrets.google_creds[f"{account_key}_secret"]
             os.makedirs(credential_path, exist_ok=True)
-            with open(os.path.join(credential_path, 'token.json'), 'w') as f: f.write(token_content)
-            with open(os.path.join(credential_path, 'client_secret.json'), 'w') as f: f.write(secret_content)
+            with open(os.path.join(credential_path, 'token.json'), 'w') as f:
+                f.write(token_content)
+            with open(os.path.join(credential_path, 'client_secret.json'), 'w') as f:
+                f.write(secret_content)
             st.info("... المصادقة جاهزة ...")
         except KeyError as e:
-            st.error(f"خطأ فادح: المفتاح {e} غير موجود في [google_creds] في Secrets.")
-            return 1
+            st.error(f"خطأ فادح: المفتاح {e} غير موجود في قسم [google_creds] في Streamlit Secrets."); return 1
         except Exception as e:
-            st.error(f"خطأ غير متوقع أثناء تهيئة المصادقة: {e}")
-            return 1
-
-    os.makedirs(LOG_DIR, exist_ok=True)
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            st.error(f"خطأ غير متوقع أثناء تهيئة المصادقة: {e}"); return 1
+            
+    os.makedirs(LOG_DIR, exist_ok=True); timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     log_filename = os.path.join(LOG_DIR, f"{username}_{task_name}_{timestamp}.log")
-    log_placeholder = st.empty()
-    log_output = f"--- بدء السجل في {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} ---\n"
+    log_placeholder = st.empty(); log_output = f"--- بدء السجل في {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} ---\n"
     log_placeholder.code(log_output, language='bash')
     try:
         with open(log_filename, 'w', encoding='utf-8') as log_file:
@@ -97,14 +93,10 @@ def run_script_and_show_output(command_script_part, username, task_name, user_da
             my_env['PYTHONIOENCODING'] = 'utf-8'
             process = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding='utf-8', env=my_env)
             for line in iter(process.stdout.readline, ''):
-                log_output += line
-                log_file.write(line)
-                log_placeholder.code(log_output, language='bash')
-            process.wait()
-            return process.returncode
+                log_output += line; log_file.write(line); log_placeholder.code(log_output, language='bash')
+            process.wait(); return process.returncode
     except Exception as e:
-        error_message = f"\n!!! خطأ فادح أثناء تشغيل السكربت: {e} !!!\n"
-        st.error(error_message)
+        error_message = f"\n!!! خطأ فادح أثناء تشغيل السكربت: {e} !!!\n"; st.error(error_message)
         with open(log_filename, 'a', encoding='utf-8') as log_file: log_file.write(error_message)
         return 1
 
@@ -115,28 +107,21 @@ def login_page():
     password = st.text_input("كلمة المرور", type="password")
     if st.button("دخول"):
         config = load_config()
-        if config and 'app_config' in config:
-            users = config['app_config'].get('users', {})
-            if username in users and users[username].get('password') == password:
-                st.session_state['logged_in'] = True
-                st.session_state['username'] = username
-                st.success("تم تسجيل الدخول بنجاح!")
-                time.sleep(1)
-                st.rerun()
-            else:
-                st.error("اسم المستخدم أو كلمة المرور غير صحيحة.")
+        users = config.get('users', {})
+        if username in users and users[username].get('password') == password:
+            st.session_state['logged_in'] = True
+            st.session_state['username'] = username
+            st.success("تم تسجيل الدخول بنجاح!"); time.sleep(1); st.rerun()
         else:
-            st.error("فشل تحميل الإعدادات. يرجى مراجعة المشرف.")
+            st.error("اسم المستخدم أو كلمة المرور غير صحيحة.")
 
 def admin_dashboard():
     st.title("👑 لوحة تحكم المشرف")
     config = load_config()
-    if not config or 'app_config' not in config: return
-
-    st.subheader("👥 إدارة أداء المستخدمين")
-    app_config_data = config.get('app_config', {})
-    users_data = app_config_data.get('users', {})
+    if not config: return
     
+    st.subheader("👥 إدارة أداء المستخدمين")
+    users_data = config.get('users', {})
     for username, data in users_data.items():
         if username == 'admin': continue
         with st.expander(f"المستخدم: {username} | المقالات: {data.get('post_count', 0)}"):
@@ -145,21 +130,24 @@ def admin_dashboard():
             new_earnings = st.number_input("تحديد/تعديل الأرباح:", value=float(data.get('earnings', 0.0)), step=0.01, format="%.2f", key=f"earn_{username}")
             new_rating = st.text_input("تحديد/تعديل التقييم:", value=data.get('rating', ''), key=f"rate_{username}")
             if st.button("💾 حفظ التغييرات لهذا المستخدم", key=f"save_{username}"):
-                users_data[username]['earnings'] = new_earnings
-                users_data[username]['rating'] = new_rating
-                # تحديث القاموس الكامل
-                full_config_to_save = config.copy()
-                full_config_to_save['app_config']['users'] = users_data
-                if save_config(full_config_to_save):
-                    st.success(f"تم تحديث بيانات {username} بنجاح!")
-                    time.sleep(1); st.rerun()
+                if not IS_CLOUD_ENVIRONMENT:
+                    config['users'][username]['earnings'] = new_earnings
+                    config['users'][username]['rating'] = new_rating
+                    if save_config(config):
+                        st.success(f"تم تحديث بيانات {username} بنجاح!")
+                        time.sleep(1); st.rerun()
+                else:
+                    save_config(config)
+
+    st.markdown("---")
+    st.subheader("🛠️ إدارة الحسابات")
+    with st.expander("إضافة أو حذف مستخدم"):
+        st.write("قسم إدارة المستخدمين الكامل يأتي هنا.")
 
 def user_dashboard():
     username = st.session_state['username']
-    full_config = load_config()
-    if not full_config or 'app_config' not in full_config: return
-    
-    config = full_config['app_config']
+    config = load_config()
+    if not config: return
     user_data = config.get('users', {}).get(username, {})
 
     st.sidebar.title(f"👋 أهلاً بك، {username}")
@@ -169,8 +157,7 @@ def user_dashboard():
     st.sidebar.markdown(f"**التقييم الحالي:** {user_data.get('rating', 'N/A')}")
     st.sidebar.markdown("---")
     
-    # قائمة الخيارات الكاملة بعد الدمج
-    page_options = ["🎥 صانع الفيديو الإخباري", "🖼️ صانع الصور الإخبارية", "📝 نشر مقالات", "🔗 استخراج الروابط", "✨ تنظيف المقالات"]
+    page_options = ["🖼️ صانع الصور الإخبارية", "📝 نشر مقالات", "🔗 استخراج الروابط", "✨ تنظيف المقالات"]
     if not IS_CLOUD_ENVIRONMENT:
         page_options.extend(["⚙️ إعدادات النشر", "⚙️ إعدادات التنظيف"])
     page_options.append("💰 الأرباح والتقييم")
@@ -186,71 +173,13 @@ def user_dashboard():
     telegram_settings = user_data.get('telegram_settings')
     
     page_error = None
-    if page in ["📝 نشر مقالات", "✨ تنظيف المقالات"] and not credential_path: page_error = "خطأ في المصادقة."
-    elif page == "🔗 استخراج الروابط" and not blogger_settings: page_error = "خطأ في إعدادات بلوجر."
-    elif page in ["🖼️ صانع الصور الإخبارية", "🎥 صانع الفيديو الإخباري"] and not telegram_settings: page_error = "خطأ في إعدادات تليجرام."
+    if page in ["📝 نشر مقالات", "✨ تنظيف المقالات"] and not credential_path: page_error = "خطأ: لم يتم تعيين مسار المصادقة لهذا المستخدم."
+    elif page == "🔗 استخراج الروابط" and (not blogger_settings or not blogger_settings.get('blog_id') or not blogger_settings.get('api_key')): page_error = "خطأ: إعدادات بلوجر غير معينة لحسابك."
+    elif page == "🖼️ صانع الصور الإخبارية" and (not telegram_settings or not telegram_settings.get('bot_token') or not telegram_settings.get('channel_id')): page_error = "خطأ: إعدادات تليجرام غير معينة لحسابك."
     
     if page_error: st.error(f"{page_error} يرجى مراجعة المشرف."); return
 
-    # --- بداية كتل الخيارات ---
-
-    if page == "🎥 صانع الفيديو الإخباري":
-        st.title("🎥 صانع الفيديو الإخباري المتحرك")
-        st.info("حوّل الأخبار إلى فيديوهات قصيرة جذابة وانشرها مباشرة إلى تليجرام.")
-        with st.form("video_creator_form"):
-            st.subheader("الخطوة 1: اختر الإعدادات الرئيسية")
-            dim_options = {key: val["name"] for key, val in video_creator.VIDEO_DIMENSIONS.items()}
-            dimension_key = st.selectbox("اختر قياس الفيديو:", options=dim_options.keys(), format_func=lambda k: dim_options[k])
-            design_options = {key: val["name"] for key, val in video_creator.DESIGN_TEMPLATES.items()}
-            design_choice = st.selectbox("اختر التصميم البصري:", options=design_options.keys(), format_func=lambda k: design_options[k])
-            template_options = {key: value["name"] for key, value in video_creator.NEWS_CATEGORIES.items()}
-            template_key = st.selectbox("اختر نوع الخبر (للون):", options=template_options.keys(), format_func=lambda k: template_options[k])
-            st.subheader("الخطوة 2: أدخل المحتوى")
-            content_type = st.radio("اختر طريقة الإدخال:", [("إدخال روابط", "url"), ("إدخال نصوص", "text")], format_func=lambda x: x[0], horizontal=True)
-            prompt = "روابط الأخبار" if content_type[1] == 'url' else "نصوص الأخبار"
-            items_text = st.text_area(f"أدخل {prompt} (كل عنصر في سطر):", height=200)
-            submitted = st.form_submit_button("🚀 ابدأ إنشاء ونشر الفيديوهات")
-
-        if submitted:
-            items_to_process = [line.strip() for line in items_text.splitlines() if line.strip()]
-            if not items_to_process:
-                st.warning("الرجاء إدخال رابط أو نص واحد على الأقل.")
-            else:
-                st.subheader("سجل المعالجة")
-                log_placeholder = st.empty(); log_output = ""
-                status_queue = Queue()
-                
-                def callback_put_in_queue(message, level="info"):
-                    status_queue.put(message)
-
-                def video_creation_worker():
-                    loop = asyncio.new_event_loop()
-                    asyncio.set_event_loop(loop)
-                    loop.run_until_complete(video_creator.process_batch_video_creation(
-                        bot_token=telegram_settings['bot_token'],
-                        channel_id=telegram_settings['channel_id'],
-                        dimension_key=dimension_key, design_choice=design_choice, template_key=template_key,
-                        items_to_process=items_to_process, item_type=content_type[1],
-                        status_callback=callback_put_in_queue
-                    ))
-                    status_queue.put("DONE")
-
-                worker_thread = Thread(target=video_creation_worker)
-                worker_thread.start()
-                
-                while True:
-                    if not status_queue.empty():
-                        message = status_queue.get()
-                        if message == "DONE": break
-                        timestamp = datetime.now().strftime("%H:%M:%S")
-                        log_output += f"[{timestamp}] {message}\n"
-                        log_placeholder.code(log_output, language='bash')
-                    time.sleep(0.1)
-
-                worker_thread.join()
-                st.success("🎉 اكتملت معالجة جميع العناصر.")
-
-    elif page == "🖼️ صانع الصور الإخبارية":
+    if page == "🖼️ صانع الصور الإخبارية":
         st.title("🖼️ صانع الصور الإخبارية")
         st.info("حوّل الأخبار إلى صور احترافية وانشرها مباشرة إلى تليجرام.")
         with st.form("image_creator_form"):
@@ -270,16 +199,13 @@ def user_dashboard():
                 st.subheader("سجل المعالجة"); log_placeholder = st.empty(); log_output = ""
                 def status_callback(message, level="info"):
                     nonlocal log_output
-                    timestamp = datetime.now().strftime("%H:%M:%S")
-                    log_output += f"[{timestamp}] {message}\n"
-                    log_placeholder.code(log_output, language='bash')
+                    timestamp = datetime.now().strftime("%H:%M:%S"); formatted_message = f"[{timestamp}] {message}"
+                    log_output += formatted_message + "\n"; log_placeholder.code(log_output, language='bash')
                 with st.spinner(f"جاري معالجة {len(news_items)} عنصر..."):
                     asyncio.run(image_creator.process_and_send_batch(
                         bot_token=telegram_settings['bot_token'], channel_id=telegram_settings['channel_id'],
                         design_choice=design_choice[1], template_key=template_key,
                         news_items=news_items, content_type=content_type[1], status_callback=status_callback))
-                st.success("🎉 اكتملت معالجة جميع العناصر.")
-
 
     elif page == "📝 نشر مقالات":
         st.title("📝 نشر مقالات جديدة عبر الروابط")
@@ -294,8 +220,7 @@ def user_dashboard():
                 if labels_text.strip():
                     custom_labels = [label.strip() for label in labels_text.split(',') if label.strip()]
                     if custom_labels: labels_command_part = f"--labels {' '.join(shlex.quote(lbl) for lbl in custom_labels)}"
-                user_pub_rules_raw = user_data.get('publishing_rules', {})
-                user_pub_rules_dict = json.loads(json.dumps(user_pub_rules_raw))
+                user_pub_rules_raw = user_data.get('publishing_rules', {}); user_pub_rules_dict = json.loads(json.dumps(user_pub_rules_raw))
                 with tempfile.NamedTemporaryFile(mode='w', delete=False, suffix='.json', encoding='utf-8') as tmp:
                     json.dump(user_pub_rules_dict, tmp, ensure_ascii=False); rules_file_path = tmp.name
                 command_script_part = (f"bot_scripts/scraper/main.py --creds-path {credential_path} --urls {' '.join(shlex.quote(u) for u in urls)} {labels_command_part} --rules-file \"{rules_file_path}\"")
@@ -304,19 +229,15 @@ def user_dashboard():
                 if return_code == 0:
                     st.success("🎉 انتهت عملية النشر بنجاح!")
                     if not IS_CLOUD_ENVIRONMENT:
-                        current_config = load_config()
-                        users_data = current_config['app_config']['users']
+                        current_config = load_config(); users_data = current_config.get('users', {})
                         users_data[username]['post_count'] += len(urls)
-                        save_config(current_config)
+                        save_config({'users': users_data})
                 else: st.error("حدث خطأ أثناء النشر.")
             else: st.warning("الرجاء إدخال رابط واحد على الأقل.")
             
     elif page == "🔗 استخراج الروابط":
         st.title("🔗 استخراج روابط المقالات")
-        if not blogger_settings: st.error("إعدادات بلوجر غير متوفرة."); return
-        blog_id = blogger_settings.get('blog_id'); api_key = blogger_settings.get('api_key')
-        if not blog_id or not api_key: st.error("معلومات Blog ID أو API Key ناقصة."); return
-        
+        blog_id = blogger_settings['blog_id']; api_key = blogger_settings['api_key']
         st.info("استخدم الخيارات أدناه لسحب الروابط من مدونتك وحفظها في ملفات نصية.")
         extraction_type = st.selectbox("اختر نوع الاستخراج:", ["اختر...", "استخراج روابط قسم معين", "استخراج روابط جميع الأقسام", "استخراج أحدث الروابط"])
         if extraction_type == "استخراج روابط قسم معين":
@@ -360,9 +281,11 @@ def user_dashboard():
             if return_code == 0: st.success("🎉 انتهت عملية التنظيف بنجاح!")
             else: st.error("حدث خطأ أثناء التنظيف.")
 
-    elif page == "⚙️ إعدادات النشر" and not IS_CLOUD_ENVIRONMENT:
+    elif page == "⚙️ إعدادات النشر":
         st.title("⚙️ إعدادات النشر المخصصة")
-        pub_rules_raw = user_data.get('publishing_rules', {"replacements": []})
+        st.info("القواعد هنا سيتم تطبيقها على محتوى المقال **أثناء عملية النشر**.")
+        users_data = config.get('users', {})
+        pub_rules_raw = users_data.get(username, {}).get('publishing_rules', {"replacements": []})
         pub_rules = json.loads(json.dumps(pub_rules_raw))
         st.subheader("🔄 عبارات البحث والاستبدال للنشر")
         replacements_list = pub_rules.get('replacements', [])
@@ -374,14 +297,13 @@ def user_dashboard():
                 if '>>' in line:
                     find_phrase, replace_phrase = line.split('>>', 1)
                     updated_replacements.append({"find": find_phrase.strip(), "replace_with": replace_phrase.strip()})
-            
-            full_cfg = load_config()
-            full_cfg['app_config']['users'][username]['publishing_rules'] = {"replacements": updated_replacements}
-            if save_config(full_cfg): st.rerun()
+            users_data[username]['publishing_rules'] = {"replacements": updated_replacements}
+            if save_config({'users': users_data}): st.rerun()
 
-    elif page == "⚙️ إعدادات التنظيف" and not IS_CLOUD_ENVIRONMENT:
+    elif page == "⚙️ إعدادات التنظيف":
         st.title("⚙️ إعدادات التنظيف المخصصة")
-        cleaning_rules_raw = user_data.get('cleaning_rules', {"remove_symbols": [], "replacements": []})
+        users_data = config.get('users', {})
+        cleaning_rules_raw = users_data.get(username, {}).get('cleaning_rules', {"remove_symbols": [], "replacements": []})
         user_rules = json.loads(json.dumps(cleaning_rules_raw))
         st.subheader("🗑️ الرموز والكلمات المراد حذفها")
         remove_text = "\n".join(user_rules.get('remove_symbols', []))
@@ -397,10 +319,8 @@ def user_dashboard():
                 if '>>' in line:
                     find_phrase, replace_phrase = line.split('>>', 1)
                     updated_replacements.append({"find": find_phrase.strip(), "replace_with": replace_phrase.strip()})
-            
-            full_cfg = load_config()
-            full_cfg['app_config']['users'][username]['cleaning_rules'] = {"remove_symbols": updated_remove_list, "replacements": updated_replacements}
-            if save_config(full_cfg): st.rerun()
+            users_data[username]['cleaning_rules'] = {"remove_symbols": updated_remove_list, "replacements": updated_replacements}
+            if save_config({'users': users_data}): st.rerun()
 
     elif page == "💰 الأرباح والتقييم":
         st.title("💰 الأرباح والتقييم")
@@ -411,9 +331,7 @@ def user_dashboard():
         col3.metric("التقييم", user_data.get('rating', 'N/A'))
 
 # --- المنطق الرئيسي للتطبيق ---
-if 'logged_in' not in st.session_state:
-    st.session_state['logged_in'] = False
-
+if 'logged_in' not in st.session_state: st.session_state['logged_in'] = False
 if st.session_state.get('logged_in'):
     username = st.session_state.get('username')
     if username == 'admin':
